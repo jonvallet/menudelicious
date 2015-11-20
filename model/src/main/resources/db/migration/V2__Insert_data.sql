@@ -1,16 +1,4 @@
 INSERT INTO categories (id, name) VALUES (1, 'Fine Dining');
-INSERT INTO restaurant (id, name, description, address1, address2, town, county, postcode, category_id)
-VALUES (1, 'The Ship Inn', '', 'King Street', '', 'Norwich', 'Norfolk', 'NR1 1PH', 1);
-
-
-INSERT INTO restaurant (id, name, description, address1, address2, town, county, postcode, category_id)
-VALUES (2, 'The Library', '', '4A Guildhall Hill', '', 'Norwich', 'Norfolk', 'NR2 1JH', 1);
-
-INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-VALUES (1, 1, 'Beef Strips', 'Crispy Beef Strips in a Hoisin, Plum & Chilli Sauce with Salad leaves & Spring Onion with Coriander & Ginger Rice', false, false, false, 0, 11.95, 'Main');
-
-INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-VALUES (2, 1, 'Whitebait', 'Deep Fried Whitebait with Salad, Lemon, Tartare Sauce & Hand Cut Chips', false, false, false, 0, 9.95, 'Main');
 
 
 INSERT INTO allergies (id, name) VALUES (1, 'Celery');
@@ -28,8 +16,22 @@ INSERT INTO allergies (id, name) VALUES (12, 'Peanuts');
 INSERT INTO allergies (id, name) VALUES (13, 'Sesame seeds');
 INSERT INTO allergies (id, name) VALUES (14, 'Soya');
 
+
+INSERT INTO restaurant (id, name, description, address1, address2, town, county, postcode, category_id)
+VALUES (1, 'The Ship Inn', '', 'King Street', '', 'Norwich', 'Norfolk', 'NR1 1PH', 1);
+
+INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
+  VALUES (1, 1, 'Beef Strips', 'Crispy Beef Strips in a Hoisin, Plum & Chilli Sauce with Salad leaves & Spring Onion with Coriander & Ginger Rice', false, false, false, 0, 11.95, 'Main');
+
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (1, 12);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (1, 13);
+
+INSERT INTO restaurant (id, name, description, address1, address2, town, county, postcode, category_id)
+  VALUES (2, 'The Library', '', '4A Guildhall Hill', '', 'Norwich', 'Norfolk', 'NR2 1JH', 1);
+
+INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
+  VALUES (2, 1, 'Whitebait', 'Deep Fried Whitebait with Salad, Lemon, Tartare Sauce & Hand Cut Chips', false, false, false, 0, 9.95, 'Main');
+
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (2, 2);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (2, 5);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (2, 14);
