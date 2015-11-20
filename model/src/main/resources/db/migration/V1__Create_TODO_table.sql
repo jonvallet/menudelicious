@@ -5,6 +5,11 @@ create table TODO (
     done boolean
 );
 
+create table categories (
+    id int identity(1,1),
+    name varchar(255)
+);
+
 create table restaurant (
     id int identity(1,1),
     name varchar(255),
@@ -13,7 +18,9 @@ create table restaurant (
     address2 varchar(40),
     town varchar(40),
     county varchar(40),
-    postcode varchar(8)
+    postcode varchar(8),
+    category_id int,
+    FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
 create table menu_items (
@@ -26,6 +33,7 @@ create table menu_items (
     veg boolean,
     spice int,
     price float,
+    course enum('Starter', 'Main', 'Desert'),
     FOREIGN KEY (restaurant_id) REFERENCES restaurant(id)
 );
 
