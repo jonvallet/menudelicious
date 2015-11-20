@@ -42,5 +42,5 @@ class TodoRepository(ctx : DatabaseContext) {
   }
 }
 
-case class Todo (id: Integer, name: String, description: String, done: Boolean)
+case class Todo (id: Int, name: String, description: String, done: Boolean)
 case class TodoCreate(name: String, description: String, done: Boolean)
