@@ -13,67 +13,130 @@
 <body ng-controller="MenuCtrl">
 
 <div class="container">
-    <h1>Menulicious - Menu</h1>
+    <h1>Menulicious - Add a dish to your menu</h1>
 
     <form class="form-inline" ng-submit="new()">
-        <div class="form-group">
-            <label for="inputRestaurant">Restaurant</label>
-            <input type="text" class="form-control" id="inputRestaurant" placeholder="Restaurant" ng-model="menuItem.username">
-        </div>
         <div class="form-group">
             <label for="inputName">Dish Name</label>
             <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="menuItem.name">
         </div>
         <div class="form-group">
-            <label for="inputDescription">Description</label>
-            <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="menuItem.description">
-        </div>
-        <div class="form-group">
-            <label for="inputHouseNameNo">Price</label>
-            <input type="text" class="form-control" id="inputHouseNameNo" placeholder="" ng-model="menuItem.house_name_no">
-        </div>
-        <div class="form-group">
-            <label for="inputStreet">Street</label>
-            <select class="form-control" id="input">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+            <label for="multipleSelect3">Course</label>
+            <select name="select" id="multipleSelect3" ng-model="data.multipleSelect3">
+                <option style="display:none" value="">Please choose..</option>
+                <option value="Starter">Starter</option>
+                <option value="Main">Main</option>
+                <option value="Dessert">Dessert</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="inputPostcode">Postcode</label>
-            <input type="text" class="form-control" id="inputPostcode" placeholder="" ng-model="newTodo.postcode">
+            <label for="inputDescription">Description</label>
+            <textarea type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="menuItem.description"></textarea>
         </div>
-        <button type="submit" class="btn bnt-default">Add</button>
+        <div class="form-group">
+            <label for="inputPrice">Price</label>
+            £<input type="text" class="form-control" id="inputPrice" placeholder="" ng-model="menuItem.price">
+        </div>
+        <div class="form-group">
+            <label>Gluten free?
+                <input type="checkbox" ng-model="menuItem.gf" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Vegetarian?
+                <input type="checkbox" ng-model="menuItem.veg" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Vegan?
+                <input type="checkbox" ng-model="menuItem.vegan" />
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label for="multipleSelect">Spice</label>
+            <select name="select" id="multipleSelect" ng-model="data.multipleSelect">
+                <option style="display:none" value="">Please choose..</option>
+                <option value="0">No spice</option>
+                <option value="1">1 - mild</option>
+                <option value="2">2 - medium</option>
+                <option value="3">3 - hot</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Allergies</label>
+            Celery
+            <label>Celery:
+                <input type="checkbox" ng-model="Celery" /><br/>
+            </label>
+            <label>Cereals containing gluten:
+                <input type="checkbox" ng-model="Cereals" /><br/>
+            </label>
+            <label>Wheat:
+                <input type="checkbox" ng-model="Wheat" /><br/>
+            </label>
+            <label>Crustaceans:
+                <input type="checkbox" ng-model="Crustaceans" /><br/>
+            </label>
+            <label>Eggs:
+                <input type="checkbox" ng-model="Eggs" /><br/>
+            </label>
+            <label>Fish:
+                <input type="checkbox" ng-model="Fish" /><br/>
+            </label>
+            <label>Lupin:
+                <input type="checkbox" ng-model="Lupin" /><br/>
+            </label>
+            <label>Milk:
+                <input type="checkbox" ng-model="Milk" /><br/>
+            </label>
+            <label>Molluscs:
+                <input type="checkbox" ng-model="Molluscs" /><br/>
+            </label>
+            <label>Mustard:
+                <input type="checkbox" ng-model="Mustard" /><br/>
+            </label>
+            <label>Nuts:
+                <input type="checkbox" ng-model="Nuts" /><br/>
+            </label>
+            <label>Peanuts:
+                <input type="checkbox" ng-model="Peanuts" /><br/>
+            </label>
+            <label>Sesame seeds:
+                <input type="checkbox" ng-model="Sesame" /><br/>
+            </label>
+            <label>Soya:
+                <input type="checkbox" ng-model="Soya" /><br/>
+            </label>
+        </div>
+        <button type="submit" ng-click="addItem()" class="btn bnt-default">Add</button>
     </form>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Username</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Address</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="restaurant in restaurants">
-            <th>{{restaurant.id}}</th>
-            <th>{{restaurant.username}}</th>
-            <th>{{restaurant.name}}</th>
-            <th>{{restaurant.description}}</th>
-            <th>{{restaurant.house_name_no}} {{restaurant.street}} {{restaurant.postcode}}</th>
-        </tr>
-        </tbody>
-    </table>
+    <div ng-if="menu_items.length > 0">
+        <h1>Menu</h1>
+        <div ng-repeat="item in menu_items">
+            <h2><span ng-bind="item.name" /></h2>
+            <div><span ng-bind="item.description" /></div>
+            <div>
+                <span ng-if="item.gluten_free == true">GF</span>
+                <span ng-if="item.vegan == true">Vegan</span>
+                <span ng-if="item.veg == true">Vegetarian</span>
+                <span ng-if="item.spice > 0">
+                    <span ng-if="item.spice == 1">Mild</span>
+                    <span ng-if="item.spice == 2">Medium spice</span>
+                    <span ng-if="item.spice == 3">Hot</span>
+                </span>
+            </div>
+            <div>£<span ng-bind="item.price" /></div>
+            <div>Allergies: <span ng-repeat="allergy in item.allergies">{{allergy.NAME}}<span ng-if="$index < item.allergies.length-1">, </span></span></div>
+        </div>
+    </div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="webjars/angularjs/1.4.7/angular.js"></script>
-<script src="js/controllers.js"></script>
+<script src="js/menu_cont.js"></script>
 </body>
 </html>
