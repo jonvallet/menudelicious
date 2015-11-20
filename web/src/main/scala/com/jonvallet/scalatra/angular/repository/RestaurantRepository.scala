@@ -16,6 +16,18 @@ import scala.collection.JavaConversions._
  */
 class RestaurantRepository(ctx: DatabaseContext) {
 
+  def getMenuItemsFilterByDiet(menuItemId: Int, dietItemId: Int) = {
+    ctx.create
+       .select()
+       .from(MENU_ITEMS, MENU_DIET)
+       .where(MENU_ITEMS.ID === MENU_DIET.MENU_ITEM_ID)
+       .and(MENU_ITEMS.ID === menuItemId)
+       .and(MENU_DIET.DIET_ID === dietItemId)
+       .fetchInto(MENU_ITEMS)
+       .formatJSON()
+
+  }
+
   def getAllergies()  = {
     ctx.create
        .select(ALLERGIES.ID, ALLERGIES.NAME)
