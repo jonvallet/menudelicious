@@ -6,6 +6,7 @@ import com.jonvallet.scalatra.angular.database.generated.tables.MenuItems._
 import com.jonvallet.scalatra.angular.database.generated.tables.Categories._
 
 import org.jooq.scala.Conversions._
+import scala.collection.JavaConversions._
 
 /**
  * Created by jvallet on 20/11/15.
@@ -14,8 +15,11 @@ class RestaurantRepository(ctx: DatabaseContext) {
 
   def getCategories = {
     ctx.create
-       .select()
-       .from()
+       .select(CATEGORIES.ID, CATEGORIES.NAME)
+       .from(CATEGORIES)
+       .fetch()
+       .toList
+       .map(record => ComboValue(record.value1(),record.value2()))
   }
 
 
@@ -35,5 +39,7 @@ class RestaurantRepository(ctx: DatabaseContext) {
        .fetch()
        .formatJSON()
   }
+
+  case class ComboValue(id: Integer, name: String)
 
 }
