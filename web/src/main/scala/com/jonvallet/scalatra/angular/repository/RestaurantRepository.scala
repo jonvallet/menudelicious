@@ -13,6 +13,15 @@ import scala.collection.JavaConversions._
  */
 class RestaurantRepository(ctx: DatabaseContext) {
 
+  def filterByCategory(category: Int) = {
+    ctx.create
+       .select()
+       .from(RESTAURANT)
+       .where(RESTAURANT.CATEGORY_ID === category)
+       .fetch()
+       .formatJSON()
+  }
+
   def getCategories = {
     ctx.create
        .select(CATEGORIES.ID, CATEGORIES.NAME)
@@ -21,7 +30,6 @@ class RestaurantRepository(ctx: DatabaseContext) {
        .toList
        .map(record => ComboValue(record.value1(),record.value2()))
   }
-
 
   def getMenu(id: Int) = {
     ctx.create
