@@ -57,16 +57,11 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
 
                item["allergies"] = response.data;
 
-                console.log(item);
-
                 $scope.menu_items.push(item);
 
             });
         }
     });
-
-    //console.log($scope.menu_items);
-
   }
 
   $scope.home = function() {

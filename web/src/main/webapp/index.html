@@ -53,10 +53,16 @@
         <div ng-repeat="item in menu_items">
             <h2><span ng-bind="item.name" /></h2>
             <div><span ng-bind="item.description" /></div>
-            <div ng-if="item.gluten_free == true">GF</div>
-            <div ng-if="item.vegan == true">Vegan</div>
-            <div ng-if="item.veg == true">Vegetarian</div>
-            <div ng-if="item.spice > 0">Spice: <span ng-bind="item.spice" /></div>
+            <div>
+                <span ng-if="item.gluten_free == true">GF</span>
+                <span ng-if="item.vegan == true">Vegan</span>
+                <span ng-if="item.veg == true">Vegetarian</span>
+                <span ng-if="item.spice > 0">
+                    <span ng-if="item.spice == 1">Mild</span>
+                    <span ng-if="item.spice == 2">Medium spice</span>
+                    <span ng-if="item.spice == 3">Hot</span>
+                </span>
+            </div>
             <div>£<span ng-bind="item.price" /></div>
             <div>Allergies: <span ng-repeat="allergy in item.allergies">{{allergy.NAME}}<span ng-if="$index < item.allergies.length-1">, </span></span></div>
         </div>
