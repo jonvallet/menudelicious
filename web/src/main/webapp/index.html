@@ -12,7 +12,7 @@
 </head>
 <body ng-controller="RestaurantCtrl">
 
-<div class="container">{{data.restaurantType}}
+<div class="container">
 
     <button ng-click="home()" class="btn bnt-default">Home</button>
 
@@ -21,10 +21,12 @@
 
         <form class="form-inline">
             <div class="form-group">
-                <select class="form-control" id="inputType" ng-model="restaurantType">
+
+                <select name="select" id="multipleSelect" ng-model="data.multipleSelect">
                     <option style="display:none" value="">Please choose..</option>
-                    <option ng-repeat="category in categories" value="{{category.id}}" ng-bind="category.name"></option>
+                    <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
                 </select>
+
             </div>
             <button ng-click="chooseRestaurantType()" class="btn bnt-default">Go</button>
         </form>
@@ -49,14 +51,15 @@
     <div ng-if="menu_items.length > 0">
         <h1>Menu</h1>
         <div ng-repeat="item in menu_items">
-            <h2><span ng-bind="item[2]" /></h2>
-            <div><span ng-bind="item[9]" /></div>
+            <h2><span ng-bind="item.name" /></h2>
+            <div><span ng-bind="item.description" /></div>
             <div><span ng-bind="item[3]" /></div>
-            <div ng-if="item[4] == true">GF</div>
-            <div ng-if="item[5] == true">Vegan</div>
-            <div ng-if="item[6] == true">Vegetarian</div>
-            <div ng-if="item[7] > 0">Spice: <span ng-bind="item[7]" /></div>
-            <div>£<span ng-bind="item[8]" /></div>
+            <div ng-if="item.gluten_free == true">GF</div>
+            <div ng-if="item.vegan == true">Vegan</div>
+            <div ng-if="item.veg == true">Vegetarian</div>
+            <div ng-if="item.spice > 0">Spice: <span ng-bind="item.spice" /></div>
+            <div>£<span ng-bind="item.price" /></div>
+            <div>Allergies: <span ng-repeat="allergy in item.allergies">{{allergy.NAME}}<span ng-if="$index < item.allergies.length-1">, </span></span></div>
         </div>
     </div>
 </div>
