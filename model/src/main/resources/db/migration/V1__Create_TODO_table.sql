@@ -43,7 +43,6 @@ create table allergies (
 );
 
 create table menu_diet (
-    id int identity(1,1),
     menu_item_id int,
     diet_id int,
     FOREIGN KEY (menu_item_id) REFERENCES menu_items(id),

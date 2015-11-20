@@ -4,6 +4,9 @@ import com.jonvallet.scalatra.angular.database.DatabaseContext
 import com.jonvallet.scalatra.angular.database.generated.tables.Restaurant._
 import com.jonvallet.scalatra.angular.database.generated.tables.MenuItems._
 import com.jonvallet.scalatra.angular.database.generated.tables.Categories._
+import com.jonvallet.scalatra.angular.database.generated.tables.MenuDiet._
+import com.jonvallet.scalatra.angular.database.generated.tables.Allergies._
+
 
 import org.jooq.scala.Conversions._
 import scala.collection.JavaConversions._
@@ -12,6 +15,26 @@ import scala.collection.JavaConversions._
  * Created by jvallet on 20/11/15.
  */
 class RestaurantRepository(ctx: DatabaseContext) {
+
+  def getAllergies()  = {
+    ctx.create
+       .select(ALLERGIES.ID, ALLERGIES.NAME)
+       .from(ALLERGIES)
+       .fetch()
+       .toList
+       .map(r => Map("ID" -> r.value1(), "NAME" -> r.value2()))
+  }
+
+  def getDiets(menuItemId : Int)  = {
+    ctx.create
+       .select(ALLERGIES.ID, ALLERGIES.NAME)
+       .from(MENU_DIET, ALLERGIES)
+       .where(MENU_DIET.MENU_ITEM_ID === menuItemId)
+       .and(ALLERGIES.ID === MENU_DIET.DIET_ID)
+       .fetch()
+       .toList
+       .map(r => Map("ID" -> r.value1(), "NAME" -> r.value2()))
+  }
 
   def filterByCategory(category: Int) = {
     ctx.create

@@ -34,4 +34,12 @@ class RestaurantController(ctx: DatabaseContext) extends ScalatraServlet with Ja
   get("/filter/category/:category") {
     repository.filterByCategory(params("category").toInt)
   }
+
+  get("/menu/item/:id/diets") {
+    repository.getDiets(params("id").toInt)
+  }
+
+  get("/allergies") {
+    repository.getAllergies()
+  }
 }
