@@ -65,9 +65,6 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
             $scope.menu_items.push(item);
         }
     });
-
-    //console.log($scope.menu_items);
-
   }
 
   $scope.home = function() {
