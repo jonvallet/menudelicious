@@ -9,17 +9,21 @@ create table restaurant (
     id int identity(1,1),
     name varchar(255),
     description varchar(255),
-    username varchar(40),
-    house_name_no varchar(40),
-    street varchar(40),
+    address1 varchar(40),
+    address2 varchar(40),
+    town varchar(40),
+    county varchar(40),
     postcode varchar(8)
 );
 
 create table menu_items (
     id int identity(1,1),
+    restaurant_id int,
     name varchar(255),
     description varchar(255),
-    like_count int,
+    gluten_free boolean,
+    vegan boolean,
+    veg boolean,
     spice int
 );
 

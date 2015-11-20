@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="restaurantApp">
+<html lang="en" ng-app="menuApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,35 +10,40 @@
     <!-- Bootstrap -->
     <link href="webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body ng-controller="RestaurantCtrl">
+<body ng-controller="MenuCtrl">
 
 <div class="container">
-    <h1>Menulicious - Restaurants</h1>
+    <h1>Menulicious - Menu</h1>
 
     <form class="form-inline" ng-submit="new()">
         <div class="form-group">
-            <label for="inputUsername">Username</label>
-            <input type="text" class="form-control" id="inputUsername" placeholder="Username" ng-model="newRestaurant.username">
+            <label for="inputRestaurant">Restaurant</label>
+            <input type="text" class="form-control" id="inputRestaurant" placeholder="Restaurant" ng-model="menuItem.username">
         </div>
         <div class="form-group">
-            <label for="inputName">Name</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="newRestaurant.name">
+            <label for="inputName">Dish Name</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="menuItem.name">
         </div>
         <div class="form-group">
             <label for="inputDescription">Description</label>
-            <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="newRestaurant.description">
+            <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="menuItem.description">
         </div>
         <div class="form-group">
-            <label for="inputHouseNameNo">House name or no.</label>
-            <input type="text" class="form-control" id="inputHouseNameNo" placeholder="" ng-model="newRestaurant.house_name_no">
+            <label for="inputHouseNameNo">Price</label>
+            <input type="text" class="form-control" id="inputHouseNameNo" placeholder="" ng-model="menuItem.house_name_no">
         </div>
         <div class="form-group">
             <label for="inputStreet">Street</label>
-            <input type="text" class="form-control" id="inputStreet" placeholder="" ng-model="newRestaurant.street">
+            <select class="form-control" id="input">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="inputPostcode">Postcode</label>
-            <input type="text" class="form-control" id="inputPostcode" placeholder="" ng-model="newRestaurant.postcode">
+            <input type="text" class="form-control" id="inputPostcode" placeholder="" ng-model="newTodo.postcode">
         </div>
         <button type="submit" class="btn bnt-default">Add</button>
     </form>
