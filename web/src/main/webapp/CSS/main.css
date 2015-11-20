@@ -1,12 +1,9 @@
 .container
 {
-<<<<<<< HEAD
 	width: 100%;
-=======
-	text-align: center;
-	/*width: 100%;
+	/*text-align: center;
+	width: 100%;
 	padding: 0px;*/
->>>>>>> 27797cb045162092df0afec4d0b14dc8422c4511
 }
 
 .dropdown
@@ -31,6 +28,15 @@ body
   padding-top: 0px !important;
   padding-bottom: 40px;
   background-color: #fff;
+}
+
+.padding_top_small {
+
+  padding-top: 3px !important;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 10px !important;
 }
 
 .form-signin {
@@ -70,7 +76,14 @@ body
 
 .img-responsive
 {
-	width: 45%;
+	width: 65%;
+	margin: auto;
+}
+
+.img-responsive-small
+{
+	width: 40%;
+	float:left;
 	margin: auto;
 }
 
@@ -81,7 +94,13 @@ body
 
 .navbar-default
 {
-	background: #892319;
+	background-color: #892319 !important;
+	border-color: #892319 !important;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #fff !important;
+    background-color: #962D2D !important;
 }
 
 .navbar-right
@@ -120,9 +139,14 @@ body
     background-color: #F2F2F2;
 }
 
+.grey3 {
+    background-color: #C6C6C6;
+}
+
 .restLogo {
     padding:10px;
     width:250px;
+    text-align: left !important;
 }
 
 .red {
@@ -136,6 +160,18 @@ body
     padding-right: 20px !important;
 }
 
+.redFront {
+    color: #fff !important;
+    font-size: 120% !important;
+    background-color: #892319 !important;
+    border-color: #892319 !important;
+}
+
+
+select.form-control {
+  line-height: 28px;
+}
+
 .red2 {
     color: #fff !important;
     font-size: 150% !important;
@@ -145,6 +181,33 @@ body
     width: 200px;
     padding-left: 20px !important;
     padding-right: 20px !important;
+}
+
+.red3 {
+    color: #fff !important;
+    font-size: 150% !important;
+    background-color: #962D2D !important;
+    border-color: #962D2D !important;
+    width: 200px;
+    margin-top:45px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.red-small {
+    color: #fff !important;
+    font-size: 100% !important;
+    background-color: #962D2D !important;
+    border-color: #962D2D !important;
+    width: 150px;
+    padding: 1px 2px !important;
+    margin-right: 3px !important;
+    margin-bottom: 5px !important;
+    float:right !important;
+}
+
+.price {
+    font-size: 150% !important;
 }
 
 .red_padding {
@@ -171,13 +234,18 @@ body
 
 .menu_title {
     font-size: 250%;
-    font-weight:700;
+    font-weight:500;
     text-align:center;
 }
 
 .container-fluid
 {
 	padding: 0px !important;
+}
+
+.allergies {
+    font-style: italic;
+    color: #666666;
 }
 
 /*.select
@@ -187,9 +255,23 @@ body
 	margin: auto;
 }*/
 
+.fancy {
+    font-size: 150%;
 
+}
 
 .alignright
 {
 	text-align: right;
+}
+
+.aligncenter {
+
+    text-align: center !important;
+}
+
+.menu_items {
+
+    padding: 20px;
+    text-align: center !important;
 }

@@ -16,7 +16,6 @@
 </head>
 <body ng-controller="RestaurantCtrl">
 
-
 <div class="container-fluid">
 
     <nav class="navbar navbar-default navbar-static-top">
@@ -32,58 +31,75 @@
 </div>
 
 <div class="container">
-    <button ng-click="home()" class="btn btn-default">Home</button>
 
-    <header>
-        <img class="img-responsive" src="Logo_Final_01-01.jpg" alt="Menulicious Logo">
-    </header>
+    <div class="row" ng-if="restaurants.length == 0 && menu_items.length == 0">
 
-    <div class="container row" ng-if="restaurants.length == 0 && menu_items.length == 0">
-        <h4 class="col-md-6 alignright" id="left">What do you fancy?</h4>
+        <div class="col-md-12">
 
-        <form id="right" class="form-inline col-md-6">
-            <div class="form-group">
-                <select name="select" id="multipleSelect" ng-model="data.multipleSelect">
-                    <option style="display:none" value="">Please choose..</option>
-                    <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
-                </select>
-            </div>
-            <button ng-click="chooseRestaurantType()" class="btn btn-default">Go</button>
-        </form>
-    </div>
-
-    <div class="row container" ng-if="restaurants.length > 0 && menu_items.length == 0">
-        <div class="span9 container">
+            <img class="img-responsive" src="Logo_Final_01-01.jpg" ng-click="home()" alt="Menulicious Logo">
 
             <div class="row">
-                <div class="span9 right">
-                    <button type="button" class="btn btn-default red">Allergies
-                    </button><button type="button" class="btn btn-default red2">Price
-                </button><button type="button" class="btn btn-default red">Diets</button>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-4 fancy">What do you want to eat tonight?</div>
+
+                <div class="col-md-4">
+
+                    <div class="row">
+                        <div class="col-md-8">
+
+                            <select class="form-control" name="select" id="multipleSelect"
+                                    ng-model="data.multipleSelect">
+                                <option class="selectText" style="display:none" value="">Please choose..</option>
+                                <option class="selectText" ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <button ng-click="chooseRestaurantType()" class="btn btn-default redFront">Go</button>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="col-md-2"></div>
+
             </div>
 
-            <div class="row container" ng-repeat="restaurant in restaurants" id="restaurants"
-                 ng-class="$even ? 'grey1' : 'grey2'">
-                <div class="span9 container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img alt="Logo" class="restLogo" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Ship_Inn.JPG"/>
+        </div>
+    </div>
+
+    <div ng-if="restaurants.length > 0 && menu_items.length == 0">
+
+        <div class="row">
+            <div class="span9 right">
+                <img class="img-responsive-small" src="Logo_Final_thin_01-01.jpg"
+                     ng-click="home()" alt="Menulicious Logo" />
+                <button type="button" class="btn btn-default red">Allergies
+                </button><button type="button" class="btn btn-default red2">Price
+            </button><button type="button" class="btn btn-default red">Diets</button>
+            </div>
+        </div>
+
+        <div class="row" ng-repeat="restaurant in restaurants" id="restaurants"
+             ng-class="$even ? 'grey1' : 'grey2'">
+            <div class="span9">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img alt="Logo" class="restLogo" src="images/{{restaurant[10]}}"/>
+                    </div>
+                    <div class="col-md-6 rest">
+                        <h2><span ng-bind="restaurant[1]" /></h2>
+                        <div class="restDesc"><span ng-bind="restaurant[2]"></span></div>
+                        <div class="restAddress">
+                            <span ng-bind="restaurant[3]"></span>
+                            <span ng-bind="restaurant[4]"></span>
+                            <span ng-bind="restaurant[5]"></span>
+                            <span ng-bind="restaurant[6]"></span>
+                            <span ng-bind="restaurant[7]"></span>
                         </div>
-                        <div class="col-md-6 rest">
-                            <h2><span ng-bind="restaurant[1]" /></h2>
-                            <div class="restDesc"><span ng-bind="restaurant[2]"></span></div>
-                            <div class="restAddress">
-                                <span ng-bind="restaurant[3]"></span>
-                                <span ng-bind="restaurant[4]"></span>
-                                <span ng-bind="restaurant[5]"></span>
-                                <span ng-bind="restaurant[6]"></span>
-                                <span ng-bind="restaurant[7]"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-3 right">
-                            <button ng-click="chooseRestaurant(restaurant[0])" class="btn btn-default red red_padding">Menu</button>
-                        </div>
+                    </div>
+                    <div class="col-md-3 right">
+                        <button ng-click="chooseRestaurant(restaurant[0])" class="btn btn-default red red_padding">Menu</button>
                     </div>
                 </div>
             </div>
@@ -91,26 +107,148 @@
     </div>
 </div>
 
-<div ng-if="menu_items.length > 0">
-    <h1>Menu</h1>
-    <div ng-repeat="item in menu_items">
-        <h2><span ng-bind="item.name" /></h2>
-        <div><span ng-bind="item.description" /></div>
-        <div>
-            <span ng-if="item.gluten_free == true">GF</span>
-            <span ng-if="item.vegan == true">Vegan</span>
-            <span ng-if="item.veg == true">Vegetarian</span>
+<div class="container" ng-if="menu_items.length > 0">
+
+    <div class="row">
+        <div class="span9 right">
+            <img class="img-responsive-small" src="Logo_Final_thin_01-01.jpg"
+                 ng-click="home()" alt="Menulicious Logo" />
+            <button type="button" class="btn btn-default red">Allergies
+            </button><button type="button" class="btn btn-default red2">Price
+        </button><button type="button" class="btn btn-default red">Diets</button>
+        </div>
+    </div>
+
+    <div class="row grey2">
+        <div class="span9">
+            <div class="row">
+                <div class="col-md-3">
+                    <img alt="Logo" class="restLogo" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Ship_Inn.JPG"/>
+                </div>
+                <div class="col-md-6 rest">
+                    <h2><span ng-bind="chosenRestaurant.name" /></h2>
+                    <div class="restDesc"><span ng-bind="chosenRestaurant.description"></span></div>
+                    <div class="restAddress">
+                        <span ng-bind="chosenRestaurant.address"></span>
+                    </div>
+                </div>
+                <div class="col-md-3 right">
+                    <button class="btn btn-default red3 red_padding">Location <span class="glyphicon glyphicon-map-marker"></span></button>
+                    <button class="btn btn-default red3 red_padding">Book <span class="glyphicon glyphicon-earphone"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row grey3">
+        <div class="span9 aligncenter">
+            <span class="menu_title">Starters</span>
+        </div>
+    </div>
+
+    <div class="row" ng-repeat="item in menu_items"
+         ng-class="$even ? 'grey1' : 'grey2'"
+         ng-if="item.course == 'Starter'">
+        <div class="span9 menu_items">
+
+            <h2><span ng-bind="item.name" /></h2>
+
+            <div class="padding_top_small"><span ng-bind="item.description" /></div>
+
+            <div class="padding_top_small">
+                <span ng-if="item.gluten_free == true">GF</span>
+                <span ng-if="item.vegan == true">Vegan</span>
+                <span ng-if="item.veg == true">Vegetarian</span>
                 <span ng-if="item.spice > 0">
                     <span ng-if="item.spice == 1">Mild</span>
                     <span ng-if="item.spice == 2">Medium spice</span>
                     <span ng-if="item.spice == 3">Hot</span>
                 </span>
+            </div>
+
+            <div class="allergies padding_top_small"><span ng-repeat="allergy in item.allergies">{{allergy.NAME}}<span ng-if="$index < item.allergies.length-1">, </span></span></div>
+
+            <div class="price padding_top_small">£<span ng-bind="item.price" /></div>
+
+            <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 56 Loved it </button>
+            <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 24 Liked it</button>
+
         </div>
-        <div>£<span ng-bind="item.price" /></div>
-        <div>Allergies: <span ng-repeat="allergy in item.allergies">{{allergy.NAME}}<span ng-if="$index < item.allergies.length-1">, </span></span></div>
+    </div>
+
+    <div class="row grey3">
+        <div class="span9 aligncenter">
+            <span class="menu_title">Mains</span>
+        </div>
+    </div>
+
+    <div class="row" ng-repeat="item in menu_items"
+         ng-class="$even ? 'grey1' : 'grey2'"
+         ng-if="item.course == 'Main'">
+        <div class="span9 menu_items">
+
+            <h2><span ng-bind="item.name" /></h2>
+
+            <div class="padding_top_small"><span ng-bind="item.description" /></div>
+
+            <div class="padding_top_small">
+                <span ng-if="item.gluten_free == true">GF</span>
+                <span ng-if="item.vegan == true">Vegan</span>
+                <span ng-if="item.veg == true">Vegetarian</span>
+                <span ng-if="item.spice > 0">
+                    <span ng-if="item.spice == 1">Mild</span>
+                    <span ng-if="item.spice == 2">Medium spice</span>
+                    <span ng-if="item.spice == 3">Hot</span>
+                </span>
+            </div>
+
+            <div class="allergies padding_top_small"><span ng-repeat="allergy in item.allergies">{{allergy.NAME}}<span ng-if="$index < item.allergies.length-1">, </span></span></div>
+
+            <div class="price padding_top_small">£<span ng-bind="item.price" /></div>
+
+            <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 56 Loved it </button>
+            <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 24 Liked it</button>
+
+        </div>
+    </div>
+
+    <div class="row grey3">
+        <div class="span9 aligncenter">
+            <span class="menu_title">Deserts</span>
+        </div>
+    </div>
+
+    <div class="row" ng-repeat="item in menu_items"
+         ng-class="$even ? 'grey1' : 'grey2'"
+         ng-if="item.course == 'Dessert'">
+        <div class="span9 menu_items">
+
+            <h2><span ng-bind="item.name" /></h2>
+
+            <div class="padding_top_small"><span ng-bind="item.description" /></div>
+
+            <div class="padding_top_small">
+                <span ng-if="item.gluten_free == true">GF</span>
+                <span ng-if="item.vegan == true">Vegan</span>
+                <span ng-if="item.veg == true">Vegetarian</span>
+                <span ng-if="item.spice > 0">
+                    <span ng-if="item.spice == 1">Mild</span>
+                    <span ng-if="item.spice == 2">Medium spice</span>
+                    <span ng-if="item.spice == 3">Hot</span>
+                </span>
+            </div>
+
+            <div class="allergies padding_top_small"><span ng-repeat="allergy in item.allergies">{{allergy.NAME}}<span ng-if="$index < item.allergies.length-1">, </span></span></div>
+
+            <div class="price padding_top_small">£<span ng-bind="item.price" /></div>
+
+            <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 56 Loved it </button>
+            <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 24 Liked it</button>
+
+        </div>
     </div>
 </div>
-</div>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -56,6 +56,7 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
 
   $scope.home = function() {
 
+    $scope.restaurantType = 0;
     $scope.restaurants = [];
     $scope.menu_items = [];
     $scope.chosenRestaurant = null;
