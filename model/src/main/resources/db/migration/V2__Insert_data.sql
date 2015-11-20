@@ -1,11 +1,13 @@
 INSERT INTO restaurant (id, name, description, address1, address2, town, county, postcode)
 VALUES (1, 'The Ship Inn', '', 'King Street', '', 'Norwich', 'Norfolk', 'NR1 1PH');
 
-INSERT INTO restaurant (id, name, description, address1, address2, town, county, postcode)
+INSERT INTO categories (id, name) VALUES (1, 'Fine Dining');
+
+INSERT INTO restaurant (id, name, description, address1, address2, town, county, postcode, category_id)
 VALUES (2, 'The Library', '', '4A Guildhall Hill', '', 'Norwich', 'Norfolk', 'NR2 1JH');
 
-INSERT INTO menu_items (id, name, description, gluten_free, vegan, veg, spice, price)
-VALUES (1, 'Beef Strips', 'Crispy Beef Strips in a Hoisin, Plum & Chilli Sauce with Salad leaves & Spring Onion with Coriander & Ginger Rice', false, false, false, 0, 11.95);
+INSERT INTO menu_items (id, name, description, gluten_free, vegan, veg, spice, price, course)
+VALUES (1, 'Beef Strips', 'Crispy Beef Strips in a Hoisin, Plum & Chilli Sauce with Salad leaves & Spring Onion with Coriander & Ginger Rice', false, false, false, 0, 11.95, 1, 'Main');
 
 INSERT INTO allergies (id, name) VALUES (1, 'Celery');
 INSERT INTO allergies (id, name) VALUES (2, 'Cereals containing gluten');
