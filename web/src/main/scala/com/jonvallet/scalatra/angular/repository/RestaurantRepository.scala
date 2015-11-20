@@ -19,5 +19,4 @@ class RestaurantRepository(ctx: DatabaseContext) {
 
 }
 
-case class Restaurant(id: Int, name: String, description: String, username: String,
-                      houseNameNo: String, street: String, postcode: String)
+case class Restaurant(id: Int, name: String, description: String)

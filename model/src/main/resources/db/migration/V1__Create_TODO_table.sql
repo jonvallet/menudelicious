@@ -24,10 +24,12 @@ create table menu_items (
     gluten_free boolean,
     vegan boolean,
     veg boolean,
-    spice int
+    spice int,
+    price float,
+    FOREIGN KEY (restaurant_id) REFERENCES restaurant(id)
 );
 
-create table diet (
+create table allergies (
     id int identity(1,1),
     name varchar(255)
 );
@@ -35,5 +37,7 @@ create table diet (
 create table menu_diet (
     id int identity(1,1),
     menu_item_id int,
-    diet_id int
+    diet_id int,
+    FOREIGN KEY (menu_item_id) REFERENCES menu_items(id),
+    FOREIGN KEY (diet_id) REFERENCES allergies(id)
 );
