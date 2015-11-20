@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="todoApp">
+<html lang="en" ng-app="restaurantApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,12 +54,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="todo in todos">
-            <th>{{todo.id}}</th>
-            <th>{{todo.username}}</th>
-            <th>{{todo.name}}</th>
-            <th>{{todo.description}}</th>
-            <th>{{todo.house_name_no}} {{todo.street}} {{todo.postcode}}</th>
+        <tr ng-repeat="restaurant in restaurants">
+            <th>{{restaurant.id}}</th>
+            <th>{{restaurant.username}}</th>
+            <th>{{restaurant.name}}</th>
+            <th>{{restaurant.description}}</th>
+            <th>{{restaurant.house_name_no}} {{restaurant.street}} {{restaurant.postcode}}</th>
         </tr>
         </tbody>
     </table>

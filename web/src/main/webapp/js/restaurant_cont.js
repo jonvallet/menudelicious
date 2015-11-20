@@ -1,6 +1,6 @@
-var todoApp = angular.module('restaurant', []);
+var todoApp = angular.module('restaurantApp', []);
 
-todoApp.controller('TodoCtrl', function ($scope,$http) {
+todoApp.controller('RestaurantCtrl', function ($scope,$http) {
 
   $scope.restaurants = [];
 
