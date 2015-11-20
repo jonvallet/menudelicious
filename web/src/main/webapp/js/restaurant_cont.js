@@ -53,15 +53,16 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
                                 "course": menu_items1[index][9]
                                 };
 
-            $http.get('/api/restaurant/menu/item/'+ menu_items1[index][0] +'/diets').then(function successCallback(response) {
-
-               item["allergies"] = response.data;
-
-                console.log(item);
-
-                $scope.menu_items.push(item);
-
-            });
+//            $http.get('/api/restaurant/menu/item/'+ menu_items1[index][0] +'/diets').then(function successCallback(response) {
+//
+//               item["allergies"] = response.data;
+//
+//                console.log(item);
+//
+//                $scope.menu_items.push(item);
+//
+//            });
+            $scope.menu_items.push(item);
         }
     });
 
