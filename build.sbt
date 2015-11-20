@@ -2,17 +2,22 @@ import sbt._
 import org.scalatra.sbt._
 
 val Organization = "com.jonvallet"
-val Name = "Scalatra Angular Web App"
+val Name = "menulicious"
 val Version = "0.1.0-SNAPSHOT"
 val ScalaVersion = "2.11.7"
 val ScalatraVersion = "2.4.0.RC3"
+
+organization := Organization
+name := Name
+version := Version
+scalaVersion := "2.11.7"
 
 lazy val model = project.
   settings(
     scalaVersion := ScalaVersion,
     libraryDependencies ++= Seq(
-      "org.jooq" % "jooq-codegen" % "3.3.1",
-      "com.h2database" % "h2" % "1.4.190"
+      "org.jooq" % "jooq-codegen" % "3.7.1" % "provided",
+      "com.h2database" % "h2" % "1.4.190" % "provided"
     )
   )
 
@@ -37,8 +42,8 @@ lazy val web = project
         "org.webjars" % "angularjs" % "1.4.7",
         "org.webjars" % "bootstrap" % "3.3.5",
         "org.jooq" % "jooq" % "3.7.1",
-        "org.jooq" % "jooq-meta" % "3.7.1",
-        "org.jooq" % "jooq-codegen" % "3.7.1",
+        "org.jooq" % "jooq-meta" % "3.7.1" % "provided",
+        "org.jooq" % "jooq-codegen" % "3.7.1" % "provided",
         "org.jooq" % "jooq-scala" % "3.7.1"
 
       )

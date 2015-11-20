@@ -18,3 +18,4 @@ jooqOptions := Seq("jdbc.driver" -> "org.h2.Driver",
 
 jooqVersion := "3.7.1"
 
+mainClass in assembly := Some("com.jonvallet.scalatra.angular.JettyLauncher")

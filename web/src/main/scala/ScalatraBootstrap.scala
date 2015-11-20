@@ -21,3 +21,5 @@ class ScalatraBootstrap extends LifeCycle {
     Database.shutdown
   }
 }
+
+
