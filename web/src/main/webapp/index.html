@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link href="CSS/main.css" rel="stylesheet">
     <title>Menulicious</title>
 
     <!-- Bootstrap -->
@@ -13,8 +17,31 @@
 <body ng-controller="RestaurantCtrl">
 
 <div class="container">{{data.restaurantType}}
+    <nav>
+        <ul class="nav navbar-nav">
+            <li><a href="restaurantloginform.html">Restuarant Login</a>
+            </li>
+        </ul>
+    </nav>
 
-    <button ng-click="home()" class="btn bnt-default">Home</button>
+    
+
+        <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <a class="navbar-brand" href="index.html">Menulicious</a>
+        </div>
+        <div id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Login</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+    <button ng-click="home()" class="btn btn-default">Home</button>
 
     <div ng-if="restaurants.length == 0 && menu_items.length == 0">
         <h1>What do you fancy?</h1>
@@ -26,23 +53,31 @@
                     <option ng-repeat="category in categories" value="{{category.id}}" ng-bind="category.name"></option>
                 </select>
             </div>
-            <button ng-click="chooseRestaurantType()" class="btn bnt-default">Go</button>
+            <button ng-click="chooseRestaurantType()" class="btn btn-default">Go</button>
         </form>
     </div>
 
-    <div ng-if="restaurants.length > 0 && menu_items.length == 0">
+    <div ng-if="restaurants.length > 0 && menu_items.length == 0" class="home">
         <h1>Here's what we found...</h1>
-        <div ng-repeat="restaurant in restaurants">
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">Allergy</button>
+            <button type="button" class="btn btn-default">Price</button>
+            <button type="button" class="btn btn-default">Diets</button>
+        </div>
+
+        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort"></span> Sort</button>
+
+        <div ng-repeat="restaurant in restaurants" id="restaurants">
             <h2><span ng-bind="restaurant[1]" /></h2>
-            <div><span ng-bind="restaurant[2]" /></div>
-            <div>
+            <div><span ng-bind="restaurant[2]" id="restDesc"/></div>
+            <div id="restAddress">
                 <span ng-bind="restaurant[3]" />
                 <span ng-bind="restaurant[4]" />
                 <span ng-bind="restaurant[5]" />
                 <span ng-bind="restaurant[6]" />
                 <span ng-bind="restaurant[7]" />
             </div>
-            <button ng-click="chooseRestaurant(restaurant[0])" class="btn bnt-default">Select</button>
+            <button ng-click="chooseRestaurant(restaurant[0])" class="btn btn-default">Select</button>
         </div>
     </div>
 
