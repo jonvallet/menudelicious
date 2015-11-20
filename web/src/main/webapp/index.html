@@ -17,7 +17,7 @@
 <body ng-controller="RestaurantCtrl">
 
 
-<div class="container">{{data.restaurantType}}
+<div class="container-fluid">
     <nav>
         <ul class="nav navbar-nav">
             <li><a href="restaurantloginform.html">Restuarant Login</a>
@@ -28,23 +28,23 @@
 
 
 
-    
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
 
-        <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          
-          <a class="navbar-brand" href="index.html">Menulicious</a>
+                <a class="navbar-brand" href="index.html">Menulicious</a>
+            </div>
+            <div id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../navbar/">Login</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
-        <div id="navbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Login</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
     </nav>
 
+</div>
 
+<div class="container">
     <button ng-click="home()" class="btn btn-default">Home</button>
 
     <div ng-if="restaurants.length == 0 && menu_items.length == 0">
@@ -63,49 +63,64 @@
         </form>
     </div>
 
-    <div ng-if="restaurants.length > 0 && menu_items.length == 0" class="home">
-        <h1>Here's what we found...</h1>
-        <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default">Allergy</button>
-            <button type="button" class="btn btn-default">Price</button>
-            <button type="button" class="btn btn-default">Diets</button>
-        </div>
+    <div class="row container" ng-if="restaurants.length > 0 && menu_items.length == 0">
+        <div class="span9 container">
 
-        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort"></span> Sort</button>
-
-        <div ng-repeat="restaurant in restaurants" id="restaurants">
-            <h2><span ng-bind="restaurant[1]" /></h2>
-            <div><span ng-bind="restaurant[2]" id="restDesc"/></div>
-            <div id="restAddress">
-                <span ng-bind="restaurant[3]" />
-                <span ng-bind="restaurant[4]" />
-                <span ng-bind="restaurant[5]" />
-                <span ng-bind="restaurant[6]" />
-                <span ng-bind="restaurant[7]" />
+            <div class="row">
+                <div class="span9 right">
+                    <button type="button" class="btn btn-default red">Allergies
+                    </button><button type="button" class="btn btn-default red2">Price
+                </button><button type="button" class="btn btn-default red">Diets</button>
+                </div>
             </div>
-            <button ng-click="chooseRestaurant(restaurant[0])" class="btn btn-default">Select</button>
+
+            <div class="row container" ng-repeat="restaurant in restaurants" id="restaurants"
+                 ng-class="$even ? 'grey1' : 'grey2'">
+                <div class="span9 container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img alt="Logo" class="restLogo" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Ship_Inn.JPG"/>
+                        </div>
+                        <div class="col-md-6 rest">
+                            <h2><span ng-bind="restaurant[1]" /></h2>
+                            <div class="restDesc"><span ng-bind="restaurant[2]"></span></div>
+                            <div class="restAddress">
+                                <span ng-bind="restaurant[3]"></span>
+                                <span ng-bind="restaurant[4]"></span>
+                                <span ng-bind="restaurant[5]"></span>
+                                <span ng-bind="restaurant[6]"></span>
+                                <span ng-bind="restaurant[7]"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 right">
+                            <button ng-click="chooseRestaurant(restaurant[0])" class="btn btn-default red red_padding">Menu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
-    <div ng-if="menu_items.length > 0">
-        <h1>Menu</h1>
-        <div ng-repeat="item in menu_items">
-            <h2><span ng-bind="item.name" /></h2>
-            <div><span ng-bind="item.description" /></div>
-            <div>
-                <span ng-if="item.gluten_free == true">GF</span>
-                <span ng-if="item.vegan == true">Vegan</span>
-                <span ng-if="item.veg == true">Vegetarian</span>
+<div ng-if="menu_items.length > 0">
+    <h1>Menu</h1>
+    <div ng-repeat="item in menu_items">
+        <h2><span ng-bind="item.name" /></h2>
+        <div><span ng-bind="item.description" /></div>
+        <div>
+            <span ng-if="item.gluten_free == true">GF</span>
+            <span ng-if="item.vegan == true">Vegan</span>
+            <span ng-if="item.veg == true">Vegetarian</span>
                 <span ng-if="item.spice > 0">
                     <span ng-if="item.spice == 1">Mild</span>
                     <span ng-if="item.spice == 2">Medium spice</span>
                     <span ng-if="item.spice == 3">Hot</span>
                 </span>
-            </div>
-            <div>£<span ng-bind="item.price" /></div>
-            <div>Allergies: <span ng-repeat="allergy in item.allergies">{{allergy.NAME}}<span ng-if="$index < item.allergies.length-1">, </span></span></div>
         </div>
+        <div>£<span ng-bind="item.price" /></div>
+        <div>Allergies: <span ng-repeat="allergy in item.allergies">{{allergy.NAME}}<span ng-if="$index < item.allergies.length-1">, </span></span></div>
     </div>
+</div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>

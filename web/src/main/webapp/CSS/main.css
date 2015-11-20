@@ -1,7 +1,6 @@
 .container
 {
-	text-align: center;
-	width: 80%;
+	width: 100%;
 }
 
 .dropdown
@@ -21,7 +20,7 @@
 	width: 100%;
 }
 
-body 
+body
 {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -73,19 +72,77 @@ body
 	text-align: center;
 }
 
-#restaurants
-{
-	width: 90%;
-	margin: auto;
-	background: #dddddd;
-}
 
-#restDesc
+.restDesc
 {
 	font-size: 12pt;
 }
 
-#restAddress
+.restAddress
 {
 	font-size: 10pt;
 }
+
+.grey1 {
+    background-color: #E8E8E8;
+}
+
+.grey2 {
+    background-color: #F2F2F2;
+}
+
+.restLogo {
+    padding:10px;
+    width:250px;
+}
+
+.red {
+    color: #fff !important;
+    font-size: 150% !important;
+    background-color: #892319 !important;
+    border-color: #892319 !important;
+    margin-top:100px;
+    width: 200px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.red2 {
+    color: #fff !important;
+    font-size: 150% !important;
+    background-color: #962D2D !important;
+    border-color: #962D2D !important;
+    margin-top:100px;
+    width: 200px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.red_padding {
+    margin-right: 20px !important;
+}
+
+.full {
+    margin-left: 100px !important;
+    margin-right: 100px !important;
+}
+
+.right {
+    text-align: right;
+}
+
+.rest {
+    padding: 20px;
+}
+
+.btn {
+    radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+.menu_title {
+    font-size: 250%;
+    font-weight:700;
+    text-align:center;
+}
+
