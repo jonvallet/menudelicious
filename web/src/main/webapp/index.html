@@ -13,8 +13,7 @@
 <body ng-controller="RestaurantCtrl">
 
 <div class="container">
-{{restaurants.length}}
-    <div ng-if="restaurantsMatch.length == 0">
+    <div ng-if="restaurants.length == 0">
         <h1>What do you fancy?</h1>
 
         <form class="form-inline">
@@ -31,6 +30,13 @@
         <h1>Here's what we found...</h1>
         <div ng-repeat="restaurant in restaurantsMatch">
             {{restaurant[1]}}
+        </div>
+    </div>
+
+    <div ng-if="menu_items.length > 0">
+        <h1>Menu</h1>
+        <div ng-repeat="item in menu_items">
+            {{item[1]}}
         </div>
     </div>
 
