@@ -1,57 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="todoApp">
+<html lang="en" ng-app="restaurantApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Todo Sample</title>
+    <title>Menulicious</title>
 
     <!-- Bootstrap -->
     <link href="webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body ng-controller="TodoCtrl">
+<body ng-controller="RestaurantCtrl">
 
 <div class="container">
+{{restaurants.length}}
+    <div ng-if="restaurantsMatch.length == 0">
+        <h1>What do you fancy?</h1>
 
-    <h1>What do you fancy?</h1>
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="inputType">Name</label>
+                <select class="form-control" id="inputType" ng-model="restaurantType">
+                    <option ng-repeat="category in categories" value="{{category[0]}}" ng-bind="category[1]"></option>
+                </select></div>
+            <button type="submit" ng-submit="chooseRestaurantType()" class="btn bnt-default">Go</button>
+        </form>
+    </div>
 
-    <form class="form-inline" ng-submit="new()">
-        <div class="form-group">
-            <label for="inputName">Name</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="newTodo.name">
+    <div ng-if="restaurantsMatch.length > 0">
+        <h1>Here's what we found...</h1>
+        <div ng-repeat="restaurant in restaurantsMatch">
+            {{restaurant[1]}}
         </div>
-        <div class="form-group">
-            <label for="inputDescription">Description</label>
-            <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="newTodo.description">
-        </div>
-        <button type="submit" class="btn bnt-default">New</button>
-    </form>
+    </div>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Done</th>
-            <th>Remove</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="todo in todos">
-            <th>{{todo.id}}</th>
-            <th>{{todo.name}}</th>
-            <th>{{todo.description}}</th>
-            <th><input type="checkbox" ng-model="todo.done" ng-change="updateDone(todo)"></th>
-            <th>
-                <button type="button" class="btn btn-default" adleria-label="Delete" ng-click="remove(todo)">
-                    <span class="glyphicon glyphicon-remove"></span>
-                </button>
-            </th>
-        </tr>
-        </tbody>
-    </table>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
@@ -59,5 +41,6 @@
 <script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="webjars/angularjs/1.4.7/angular.js"></script>
 <script src="js/controllers.js"></script>
+<script src="js/restaurant_cont.js"></script>
 </body>
 </html>

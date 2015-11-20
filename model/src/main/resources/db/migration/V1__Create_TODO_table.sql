@@ -33,7 +33,7 @@ create table menu_items (
     veg boolean,
     spice int,
     price float,
-    course enum('Starter', 'Main', 'Desert'),
+    course varchar(10),
     FOREIGN KEY (restaurant_id) REFERENCES restaurant(id)
 );
 
