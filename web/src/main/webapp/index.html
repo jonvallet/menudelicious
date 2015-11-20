@@ -12,41 +12,59 @@
 </head>
 <body ng-controller="RestaurantCtrl">
 
-<div class="container">
-    <div ng-if="restaurants.length == 0">
+<div class="container">{{data.restaurantType}}
+
+    <button ng-click="home()" class="btn bnt-default">Home</button>
+
+    <div ng-if="restaurants.length == 0 && menu_items.length == 0">
         <h1>What do you fancy?</h1>
 
         <form class="form-inline">
             <div class="form-group">
-                <label for="inputType">Name</label>
                 <select class="form-control" id="inputType" ng-model="restaurantType">
-                    <option ng-repeat="category in categories" value="{{category[0]}}" ng-bind="category[1]"></option>
-                </select></div>
-            <button type="submit" ng-submit="chooseRestaurantType()" class="btn bnt-default">Go</button>
+                    <option style="display:none" value="">Please choose..</option>
+                    <option ng-repeat="category in categories" value="{{category.id}}" ng-bind="category.name"></option>
+                </select>
+            </div>
+            <button ng-click="chooseRestaurantType()" class="btn bnt-default">Go</button>
         </form>
     </div>
 
-    <div ng-if="restaurantsMatch.length > 0">
+    <div ng-if="restaurants.length > 0 && menu_items.length == 0">
         <h1>Here's what we found...</h1>
-        <div ng-repeat="restaurant in restaurantsMatch">
-            {{restaurant[1]}}
+        <div ng-repeat="restaurant in restaurants">
+            <h2><span ng-bind="restaurant[1]" /></h2>
+            <div><span ng-bind="restaurant[2]" /></div>
+            <div>
+                <span ng-bind="restaurant[3]" />
+                <span ng-bind="restaurant[4]" />
+                <span ng-bind="restaurant[5]" />
+                <span ng-bind="restaurant[6]" />
+                <span ng-bind="restaurant[7]" />
+            </div>
+            <button ng-click="chooseRestaurant(restaurant[0])" class="btn bnt-default">Select</button>
         </div>
     </div>
 
     <div ng-if="menu_items.length > 0">
         <h1>Menu</h1>
         <div ng-repeat="item in menu_items">
-            {{item[1]}}
+            <h2><span ng-bind="item[2]" /></h2>
+            <div><span ng-bind="item[9]" /></div>
+            <div><span ng-bind="item[3]" /></div>
+            <div ng-if="item[4] == true">GF</div>
+            <div ng-if="item[5] == true">Vegan</div>
+            <div ng-if="item[6] == true">Vegetarian</div>
+            <div ng-if="item[7] > 0">Spice: <span ng-bind="item[7]" /></div>
+            <div>£<span ng-bind="item[8]" /></div>
         </div>
     </div>
-
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="webjars/angularjs/1.4.7/angular.js"></script>
-<script src="js/controllers.js"></script>
 <script src="js/restaurant_cont.js"></script>
 </body>
 </html>
