@@ -1,7 +1,8 @@
 .container
 {
 	text-align: center;
-	width: 80%;
+	/*width: 100%;
+	padding: 0px;*/
 }
 
 .dropdown
@@ -23,9 +24,9 @@
 
 body 
 {
-  padding-top: 40px;
+  padding-top: 0px !important;
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color: #fff;
 }
 
 .form-signin {
@@ -63,9 +64,32 @@ body
   border-top-right-radius: 0;
 }
 
+.img-responsive
+{
+	width: 45%;
+	margin: auto;
+}
 
+.navbar .navbar-default .navbar-static-top
+{
+	width: 100%;
+}
 
+.navbar-default
+{
+	background: #892319;
+}
 
+.navbar-right
+{
+	margin-right: 15px;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover
+{
+	background: #962D2D;
+	color: #000;
+}
 
 .home
 {
@@ -88,4 +112,23 @@ body
 #restAddress
 {
 	font-size: 10pt;
+}
+
+.container-fluid
+{
+	padding: 0px !important;
+}
+
+/*.select
+{
+	min-width: 60%;
+	max-width: 60%;
+	margin: auto;
+}*/
+
+
+
+.alignright
+{
+	text-align: right;
 }
