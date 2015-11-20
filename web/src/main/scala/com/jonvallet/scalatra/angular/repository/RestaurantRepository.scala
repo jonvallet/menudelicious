@@ -6,6 +6,7 @@ import com.jonvallet.scalatra.angular.database.generated.tables.MenuItems._
 import com.jonvallet.scalatra.angular.database.generated.tables.Categories._
 import com.jonvallet.scalatra.angular.database.generated.tables.MenuDiet._
 import com.jonvallet.scalatra.angular.database.generated.tables.Allergies._
+import com.jonvallet.scalatra.angular.database.generated.tables.records.MenuItemsRecord
 
 
 import org.jooq.scala.Conversions._
@@ -24,7 +25,7 @@ class RestaurantRepository(ctx: DatabaseContext) {
        .and(MENU_ITEMS.ID === menuItemId)
        .and(MENU_DIET.DIET_ID === dietItemId)
        .fetchInto(MENU_ITEMS)
-       .formatJSON()
+       .toList
 
   }
 
@@ -67,12 +68,27 @@ class RestaurantRepository(ctx: DatabaseContext) {
   }
 
   def getMenu(id: Int) = {
-    ctx.create
+    val resultList: List[MenuItemsRecord] = ctx.create
       .select()
       .from(MENU_ITEMS)
       .where(MENU_ITEMS.RESTAURANT_ID === id)
-      .fetch()
-      .formatJSON()
+      .fetchInto(MENU_ITEMS)
+      .toList
+
+    resultList.map(r => Map(
+      "id" -> r.getId,
+      "name" -> r.getName,
+      "description" -> r.getDescription,
+      "gluten_free" -> r.getGlutenFree,
+      "vegan" -> r.getVegan,
+      "veg" -> r.getVeg,
+      "spice" -> r.getSpice,
+      "price" -> r.getPrice,
+      "course" -> r.getCourse,
+      "allergies"-> getDiets(r.getId)
+      )
+    )
+
   }
 
   def list() = {

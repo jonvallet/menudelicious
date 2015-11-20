@@ -1,6 +1,12 @@
 .container
 {
+<<<<<<< HEAD
 	width: 100%;
+=======
+	text-align: center;
+	/*width: 100%;
+	padding: 0px;*/
+>>>>>>> 27797cb045162092df0afec4d0b14dc8422c4511
 }
 
 .dropdown
@@ -22,9 +28,9 @@
 
 body
 {
-  padding-top: 40px;
+  padding-top: 0px !important;
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color: #fff;
 }
 
 .form-signin {
@@ -62,9 +68,32 @@ body
   border-top-right-radius: 0;
 }
 
+.img-responsive
+{
+	width: 45%;
+	margin: auto;
+}
 
+.navbar .navbar-default .navbar-static-top
+{
+	width: 100%;
+}
 
+.navbar-default
+{
+	background: #892319;
+}
 
+.navbar-right
+{
+	margin-right: 15px;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover
+{
+	background: #962D2D;
+	color: #000;
+}
 
 .home
 {
@@ -146,3 +175,21 @@ body
     text-align:center;
 }
 
+.container-fluid
+{
+	padding: 0px !important;
+}
+
+/*.select
+{
+	min-width: 60%;
+	max-width: 60%;
+	margin: auto;
+}*/
+
+
+
+.alignright
+{
+	text-align: right;
+}

@@ -49,32 +49,8 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
 
     $http.get('/api/restaurant/'+ restaurant_id +'/menu').then(function successCallback(response) {
 
-        var menu_items1 = response.data.records;
+            $scope.menu_items = response.data;
 
-        for (index = 0; index < menu_items1.length; ++index) {
-
-        var item = {
-                                               "id": menu_items1[index][0],
-                                               "name": menu_items1[index][2],
-                                               "description": menu_items1[index][3],
-                                               "gluten_free": menu_items1[index][4],
-                                               "vegan": menu_items1[index][5],
-                                               "veg": menu_items1[index][6],
-                                               "spice": menu_items1[index][7],
-                                               "price": menu_items1[index][8],
-                                               "course": menu_items1[index][9]
-                                               };
-
-            $scope.menu_items.push(item);
-
-            $http.get('/api/restaurant/menu/item/'+ menu_items1[index][0] +'/diets').then(function successCallback(response) {
-
-
-               //item["allergies"] = response.data;
-
-
-            });
-        }
     });
   }
 

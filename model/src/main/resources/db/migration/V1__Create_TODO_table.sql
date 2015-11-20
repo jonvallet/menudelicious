@@ -20,7 +20,9 @@ create table restaurant (
     county varchar(40),
     postcode varchar(8),
     category_id int,
-    FOREIGN KEY (category_id) REFERENCES categories(id)
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    phone varchar(20),
+    photo_url varchar(255)
 );
 
 create table menu_items (

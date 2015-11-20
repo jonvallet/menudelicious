@@ -1,5 +1,5 @@
-INSERT INTO restaurant (id, name, description, address1, address2, town, county, postcode, category_id)
-  VALUES (2, 'The Library', '', '4A Guildhall Hill', '', 'Norwich', 'Norfolk', 'NR2 1JH', 1);
+INSERT INTO restaurant (id, name, description, address1, address2, town, county, postcode, category_id, phone, photo_url)
+  VALUES (2, 'The Library', '', '4A Guildhall Hill', '', 'Norwich', 'Norfolk', 'NR2 1JH', 1, '01603 616606', 'Library.JPG');
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
   VALUES (20, 2, 'Beef Strips', 'Deep Fried Crispy Beef Strips in a Hoisin, Plum & Chilli Sauce with salad leaves & Spring onion', false, false, false, 0, 6.95, 'Starter');

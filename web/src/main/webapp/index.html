@@ -18,25 +18,12 @@
 
 
 <div class="container-fluid">
-    <nav>
-        <ul class="nav navbar-nav">
-            <li><a href="restaurantloginform.html">Restuarant Login</a>
-            </li>
-        </ul>
-    </nav>
-
-
-
 
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
-            <div class="navbar-header">
-
-                <a class="navbar-brand" href="index.html">Menulicious</a>
-            </div>
             <div id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../navbar/">Login</a></li>
+                    <li class="active"><a href="Pages/restaurantloginform.html">Login</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -47,17 +34,19 @@
 <div class="container">
     <button ng-click="home()" class="btn btn-default">Home</button>
 
-    <div ng-if="restaurants.length == 0 && menu_items.length == 0">
-        <h1>What do you fancy?</h1>
+    <header>
+        <img class="img-responsive" src="Logo_Final_01-01.jpg" alt="Menulicious Logo">
+    </header>
 
-        <form class="form-inline">
+    <div class="container row" ng-if="restaurants.length == 0 && menu_items.length == 0">
+        <h4 class="col-md-6 alignright" id="left">What do you fancy?</h4>
+
+        <form id="right" class="form-inline col-md-6">
             <div class="form-group">
-
                 <select name="select" id="multipleSelect" ng-model="data.multipleSelect">
                     <option style="display:none" value="">Please choose..</option>
                     <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
                 </select>
-
             </div>
             <button ng-click="chooseRestaurantType()" class="btn btn-default">Go</button>
         </form>
