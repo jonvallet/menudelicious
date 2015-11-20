@@ -1,31 +1,24 @@
-var todoApp = angular.module('restaurantApp', []);
+var restaurantApp = angular.module('restaurantApp', []);
 
-todoApp.controller('RestaurantCtrl', function ($scope,$http) {
+restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
 
   $scope.restaurants = [];
+  $scope.categories = [];
+  $scope.menu_items = [];
+  $scope.allergies = [];
 
-  $scope.newRestaurant = {};
+  $http.get('/api/categories').then(function successCallback(response) {
 
-  $scope.new = function() {
-    var newItem = {
-      "name":$scope.newRestaurant.name,
-      "description":$scope.newRestaurant.description,
-      "username":$scope.newRestaurant.username,
-      "house_name_no":$scope.newRestaurant.house_name_no,
-      "street":$scope.newRestaurant.street,
-      "postcode":$scope.newRestaurant.postcode
-    };
-    saveNew(newItem)
-  };
-
-  $http.get('/api/restaurant').then(function successCallback(response) {
-    $scope.restaurants = response.data
+      $scope.categories = response.data.records;
   });
 
-  function saveNew(restaurant) {
-    $http.post('/api/restaurant', restaurant).then(function successCallback(response) {
-      $scope.restaurants.push(response.data)
-    })
+  function chooseRestaurantType(type) {
+
+    /*$http.get('/api/restaurant').then(function successCallback(response) {
+
+        $scope.restaurants = response.data.records;
+      });*/
+
   }
 
 
