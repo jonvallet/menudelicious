@@ -3,7 +3,7 @@ package com.jonvallet.scalatra.angular.repository
 import com.jonvallet.scalatra.angular.database.DatabaseContext
 import com.jonvallet.scalatra.angular.database.generated.tables.Restaurant._
 import com.jonvallet.scalatra.angular.database.generated.tables.MenuItems._
-import com.jonvallet.scalatra.angular.database.generated.tables.Category._
+import com.jonvallet.scalatra.angular.database.generated.tables.Categories._
 
 import org.jooq.scala.Conversions._
 
