@@ -50,7 +50,6 @@
 
     <div ng-if="menu_items.length > 0">
         <h1>Menu</h1>
-        <div>{{menu_items}}</div>
         <div ng-repeat="item in menu_items">
             <h2><span ng-bind="item.name" /></h2>
             <div><span ng-bind="item.description" /></div>
