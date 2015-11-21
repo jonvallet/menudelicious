@@ -29,7 +29,7 @@ create table menu_items (
     id int identity(1,1),
     restaurant_id int,
     name varchar(255),
-    description varchar(255),
+    description varchar(500),
     gluten_free boolean,
     vegan boolean,
     veg boolean,
