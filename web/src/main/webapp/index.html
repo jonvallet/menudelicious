@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link href="CSS/main.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="Favicon_01-01.png" />
     <title>Menulicious</title>
@@ -17,12 +15,19 @@
 </head>
 <body ng-controller="RestaurantCtrl">
 
+<div id="shade"></div>
+<div id="modal">
+    <button class="btn btn-default red5" id="close" ng-click="close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+</div>
+
 <div class="container-fluid">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="Pages/restaurantloginform.html">Login</a></li>
+                    <li class="active"><a href="/login.html">Login</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -31,7 +36,7 @@
 
 <div class="container">
 
-    <div class="row" ng-if="restaurants.length == 0 && menu_items.length == 0">
+    <div class="row" ng-if="restaurants.length == 0 && menu_items.length == 0 && menuSearchResult == null">
         <div class="col-md-12">
             <img class="img-responsive" src="Logo_Final_01-01.jpg" ng-click="home()" alt="Menulicious Logo">
             <div class="row">
@@ -39,9 +44,9 @@
                 <div class="col-md-8 fancy">
                     <div class="front_qu">What do you want to eat tonight?</div>
                     <div class="input-group">
-                        <input id="tags" class="form-control" placeholder="Enter food type or dish" />
+                        <input id="tags" ng-model="search_term" class="form-control" placeholder="Enter food type or dish"/>
                         <span class="input-group-btn">
-                            <button ng-click="chooseRestaurantType()" type="button" class="btn btn-default">Search <span class="glyphicon glyphicon-search"></span></button>
+                            <button ng-click="chooseRestaurantType(search_term)" type="button" class="btn btn-default">Search <span class="glyphicon glyphicon-search"></span></button>
                         </span>
                     </div>
                 </div>
@@ -50,12 +55,12 @@
         </div>
     </div>
 
-    <div ng-if="restaurants.length > 0 && menu_items.length == 0">
+    <div ng-if="restaurants.length > 0 && menu_items.length == 0 && menuSearchResult == null">
 
         <div class="row">
             <div class="col-md-6">
                 <img class="img-responsive-small" src="Logo_Final_thin_01-01.jpg"
-                                       ng-click="home()" alt="Menulicious Logo" /></div>
+                     ng-click="home()" alt="Menulicious Logo" /></div>
             <div class="col-md-6 breadcrumbs"><span ng-click="home()">home</span> >
                 <span ng-click="restaurantsPage()">restaurants</span></div>
         </div>
@@ -162,7 +167,7 @@
         </div>
     </div>
 
-    <div ng-if="menu_items.length > 0">
+    <div ng-if="menu_items.length > 0 && menuSearchResult == null">
 
         <div class="row">
             <div class="col-md-6">
@@ -319,8 +324,9 @@
 
                 <div class="price padding_top_small">£<span ng-bind="item.price" /></div>
 
-                <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 56 Loved it </button>
-                <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 24 Liked it</button>
+                <button class="btn btn-default red-small" data-toggle="tooltip" title="This will be shared anonymously with the restaurant only."><span class="glyphicon glyphicon-thumbs-down" ></span> Dislike</button>
+                <button class="btn btn-default red-small" ng-click="alert()"><span class="glyphicon glyphicon-heart-empty"></span> 56 Loved it </button>
+                <button class="btn btn-default red-small" ng-click="alert()"><span class="glyphicon glyphicon-heart-empty"></span> 24 Liked it</button>
 
             </div>
         </div>
@@ -355,8 +361,9 @@
 
                 <div class="price padding_top_small">£<span ng-bind="item.price" /></div>
 
-                <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 56 Loved it </button>
-                <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 24 Liked it</button>
+                <button class="btn btn-default red-small" data-toggle="tooltip" title="This will be shared anonymously with the restaurant only."><span class="glyphicon glyphicon-thumbs-down" ></span> Dislike</button>
+                <button class="btn btn-default red-small" ng-click="alert()"><span class="glyphicon glyphicon-heart-empty"></span> 56 Loved it </button>
+                <button class="btn btn-default red-small" ng-click="alert()"><span class="glyphicon glyphicon-heart-empty"></span> 24 Liked it</button>
 
             </div>
         </div>
@@ -391,16 +398,162 @@
 
                 <div class="price padding_top_small">£<span ng-bind="item.price" /></div>
 
-                <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 56 Loved it </button>
-                <button class="btn btn-default red-small"><span class="glyphicon glyphicon-heart-empty"></span> 24 Liked it</button>
+                <button class="btn btn-default red-small" data-toggle="tooltip" title="This will be shared anonymously with the restaurant only."><span class="glyphicon glyphicon-thumbs-down" ></span> Dislike</button>
+                <button class="btn btn-default red-small" ng-click="alert()"><span class="glyphicon glyphicon-heart-empty"></span> 56 Loved it </button>
+                <button class="btn btn-default red-small" ng-click="alert()"><span class="glyphicon glyphicon-heart-empty"></span> 24 Liked it</button>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="menuSearchResult != null">
+
+        <div class="row">
+            <div class="col-md-6">
+                <img class="img-responsive-small" src="Logo_Final_thin_01-01.jpg"
+                     ng-click="home()" alt="Menulicious Logo" /></div>
+            <div class="col-md-6 breadcrumbs"><span ng-click="home()">home</span> > menu</div>
+        </div>
+
+        <div class="row">
+            <div class="span9 right">
+
+                <button type="button" class="btn btn-default red2"
+                        ng-click="chooseAllergies()">Allergies
+                </button><button type="button" class="btn btn-default red2"
+                                 ng-click="choosePrice()">Price
+            </button><button type="button" class="btn btn-default red2"
+                             ng-click="chooseDiet()">Diets</button>
             </div>
         </div>
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="webjars/angularjs/1.4.7/angular.js"></script>
-        <script src="js/restaurant_cont.js"></script>
+        <div ng-show="choose_allergies" class="row">
+            <div class="col-md-12 allergies-div1">
+                <div class="row">
+                    <div class="col-md-4" ng-repeat="allergy in allergies">
+                        <input type="checkbox" /><span class="allergy-name">{{allergy.NAME}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 allergies-div2">
+                <button type="button" class="btn btn-default redFront"
+                        ng-click="filter()">Search</button>
+            </div>
+        </div>
+
+        <div ng-show="choose_price" class="row">
+            <div class="col-md-12 allergies-div1">
+                <div class="row">
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" placeholder="From.."/>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" placeholder="To.."/>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-default redFront"
+                                ng-click="filter()">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 allergies-div2">
+            </div>
+        </div>
+
+        <div ng-show="choose_diet" class="row">
+            <div class="col-md-12 allergies-div1">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="checkbox" /><span class="allergy-name">Gluten free</span>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" /><span class="allergy-name">Vegetarian</span>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" /><span class="allergy-name">Vegan</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 allergies-div1">
+                        <select name="select" class="form-control" >
+                            <option value="">All spice</option>
+                            <option value="0">No spice</option>
+                            <option value="1">1 - mild</option>
+                            <option value="2">2 - medium</option>
+                            <option value="3">3 - hot</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 allergies-div2">
+                <button type="button" class="btn btn-default redFront"
+                        ng-click="filter()">Search</button>
+            </div>
+        </div>
+
+        <div class="row grey3">
+            <div class="span9 aligncenter">
+                <span class="menu_title">Starters</span>
+            </div>
+        </div>
+
+        <div class="row grey2">
+            <div class="span9">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img alt="Logo" class="restLogo" src="/images/{{menuSearchResult.rest_url}}"/>
+                        <div><span class="rest-small-name" ng-bind="menuSearchResult.rest_name"></span></div>
+                        <div><span class="rest-small" ng-bind="menuSearchResult.rest_address"></span></div>
+                    </div>
+                    <div class="col-md-6 menu_items">
+                        <h2><span ng-bind="menuSearchResult.name" /></h2>
+
+                        <div class="padding_top_small"><span ng-bind="menuSearchResult.description" /></div>
+
+                        <div class="padding_top_small">
+                            <span ng-if="menuSearchResult.gluten_free == true">GF</span>
+                            <span ng-if="menuSearchResult.vegan == true">Vegan</span>
+                            <span ng-if="menuSearchResult.veg == true">Vegetarian</span>
+                    <span ng-if="menuSearchResult.spice > 0">
+                        <span ng-if="menuSearchResult.spice == 1">Mild</span>
+                        <span ng-if="menuSearchResult.spice == 2">Medium spice</span>
+                        <span ng-if="menuSearchResult.spice == 3">Hot</span>
+                    </span>
+                        </div>
+
+                        <div class="allergies padding_top_small"><span ng-bind="menuSearchResult.allergies"></span></div>
+
+                        <div class="price padding_top_small">£<span ng-bind="menuSearchResult.price" /></div>
+
+                        <button class="btn btn-default red-small2" id="dislike" data-toggle="tooltip" title="This will be shared anonymously with the restaurant only."><span class="glyphicon glyphicon-thumbs-down" ></span> Dislike</button>
+                        <button class="btn btn-default red-small2" ng-click="alert()"><span class="glyphicon glyphicon-heart-empty"></span> 56 Loved it </button>
+                        <button class="btn btn-default red-small2" ng-click="alert()"><span class="glyphicon glyphicon-heart-empty"></span> 24 Liked it</button>
+
+                    </div>
+
+                    <div class="col-md-3 right">
+                        <button ng-click="chooseRestaurant(2)" class="btn btn-default red red_padding">Menu</button>
+
+                        <div class="categ">Fine Dining</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="webjars/angularjs/1.4.7/angular.js"></script>
+<script src="js/restaurant_cont.js"></script>
+
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 </body>
 </html>

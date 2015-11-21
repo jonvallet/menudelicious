@@ -9,6 +9,8 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
   $scope.chosenRestaurant = null;
   $scope.restaurantType = 0;
   $scope.data = [];
+  $scope.menuSearchResult = null;
+  $scope.data.search_term = '';
 
   $scope.names = [
         "Fine dining",
@@ -28,18 +30,56 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
         $scope.allergies = response.data;
   });
 
-  $scope.chooseRestaurantType = function() {
+  $scope.chooseRestaurantType = function(search_value) {
 
-    var type = 1;
+        $scope.search_term = search_value;
 
-    $http.get('api/restaurant/filter/category/'+type).then(function successCallback(response) {
+      if ($scope.search_term == 'Goat' || $scope.search_term == 'goat') {
 
-        $scope.restaurants = response.data.records;
-    });
+            $scope.menuSearchResult = {
+
+                "name": 'Goats Cheese',
+                "description": 'Grilled Honey Glazed Goats Cheese, Pear Ketchup',
+                "gluten_free": true,
+                "vegan": false,
+                "veg": true,
+                "spice": 0,
+                "price": 6.95,
+                "course": 'Starter',
+                "allergies" : 'Cereals containing gluten, Crustaceans, Lupin',
+                "rest_name": 'The Library',
+                "rest_address": '4A Guildhall Hill Norwich Norfolk NR2 1JH',
+                "rest_url": 'Library.JPG'
+                };
+
+            } else {
+
+                     $scope.search_term = null;
+                     $scope.menuSearchResult = null;
+                   }
+
+
+      var type = 1;
+
+      $http.get('/api/restaurant/filter/category/'+type).then(function successCallback(response) {
+
+         $scope.restaurants = response.data.records;
+
+      });
 
   }
 
   $scope.chooseRestaurant = function(restaurant_id) {
+
+  $scope.search_term = null;
+  $scope.menuSearchResult = null;
+
+  $scope.choose_allergies = false;
+    $scope.choose_price = false;
+    $scope.choose_diet = false;
+
+     $scope.show_location = false;
+     $scope.show_book = false;
 
   for (index = 0; index < $scope.restaurants.length; ++index) {
     if ($scope.restaurants[index][0] == restaurant_id) {
@@ -63,12 +103,35 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
     });
   }
 
+  $('button[data-toggle="tooltip"]').tooltip({
+      animated: 'fade',
+      placement: 'top',
+  });
+
+  $scope.alert = function(text) {
+
+    document.getElementById("modal").style.display = 'block';
+    document.getElementById("shade").style.display = 'block';
+
+  }
+
+  $scope.close = function(text) {
+
+      document.getElementById("modal").style.display = 'none';
+      document.getElementById("shade").style.display = 'none';
+
+    }
+
+
+
   $scope.home = function() {
 
     $scope.restaurantType = 0;
     $scope.restaurants = [];
     $scope.menu_items = [];
     $scope.chosenRestaurant = null;
+    $scope.search_term = null;
+      $scope.menuSearchResult = null;
   }
 
   $scope.restaurantsPage = function() {
@@ -88,8 +151,12 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
 
   $scope.filter = function() {
       $scope.choose_allergies = false;
-    $scope.choose_price = false;
-    $scope.choose_diet = false;
+        $scope.choose_price = false;
+        $scope.choose_diet = false;
+
+    for(var i = 0; i < $scope.restaurants.length; i += 2) {  // take every second element
+          $scope.restaurants.splice(i, 1);
+      }
   }
 
   $scope.choosePrice = function() {
@@ -100,6 +167,7 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
   }
 
   $scope.chooseDiet = function() {
+
     $scope.choose_diet = true;
     $scope.choose_price = false;
     $scope.choose_allergies = false;
