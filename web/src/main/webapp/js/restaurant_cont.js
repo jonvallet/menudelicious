@@ -20,12 +20,12 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
       ];
 
 
-  $http.get('/api/restaurant/categories').then(function successCallback(response) {
+  $http.get('api/restaurant/categories').then(function successCallback(response) {
 
       $scope.categories = response.data;
   });
 
-  $http.get('/api/restaurant/allergies').then(function successCallback(response) {
+  $http.get('api/restaurant/allergies').then(function successCallback(response) {
 
         $scope.allergies = response.data;
   });
@@ -96,7 +96,7 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
     }
     }
 
-    $http.get('/api/restaurant/'+ restaurant_id +'/menu').then(function successCallback(response) {
+    $http.get('api/restaurant/'+ restaurant_id +'/menu').then(function successCallback(response) {
 
             $scope.menu_items = response.data;
 

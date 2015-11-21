@@ -13,22 +13,22 @@ todoApp.controller('TodoCtrl', function ($scope,$http) {
     saveNew(newItem)
   }
 
-  $http.get('/api/todo').then(function successCallback(response) {
+  $http.get('api/todo').then(function successCallback(response) {
     $scope.todos = response.data
   })
 
   function saveNew(todo) {
-    $http.post('/api/todo', todo).then(function successCallback(response) {
+    $http.post('api/todo', todo).then(function successCallback(response) {
       $scope.todos.push(response.data)
     })
   }
 
   $scope.updateDone = function (todo) {
-    $http.put('/api/todo/'+todo.id+'/done', todo.done)
+    $http.put('api/todo/'+todo.id+'/done', todo.done)
   }
 
   $scope.remove = function (remove) {
-    $http.delete('/api/todo/'+remove.id).then(function successCallback() {
+    $http.delete('api/todo/'+remove.id).then(function successCallback() {
        var index = $scope.todos.indexOf(remove)
        $scope.todos.splice(index, 1)
     })
