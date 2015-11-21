@@ -131,11 +131,9 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
     $scope.menu_items = [];
     $scope.chosenRestaurant = null;
     $scope.search_term = null;
-      $scope.menuSearchResult = null;
+    $scope.menuSearchResult = null;
 
-
-
-  $scope.choose_allergies = false;
+    $scope.choose_allergies = false;
     $scope.choose_price = false;
     $scope.choose_diet = false;
 
@@ -163,9 +161,12 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
         $scope.choose_price = false;
         $scope.choose_diet = false;
 
-    for(var i = 0; i < $scope.restaurants.length; i += 2) {  // take every second element
-          $scope.restaurants.splice(i, 1);
-      }
+          $scope.restaurants.splice(0, 1);
+          $scope.restaurants.splice(1, 1);
+          $scope.restaurants.splice(1, 1);
+          $scope.restaurants.splice(1, 1);
+          $scope.restaurants.splice(1, 1);
+
   }
 
   $scope.choosePrice = function() {
