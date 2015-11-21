@@ -10,6 +10,14 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
   $scope.restaurantType = 0;
   $scope.data = [];
 
+  $scope.names = [
+        "Fine dining",
+        "Fish",
+        "French",
+        "Frogs legs"
+      ];
+
+
   $http.get('/api/restaurant/categories').then(function successCallback(response) {
 
       $scope.categories = response.data;
@@ -22,7 +30,7 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
 
   $scope.chooseRestaurantType = function() {
 
-    var type = $scope.data.multipleSelect;
+    var type = 1;
 
     $http.get('/api/restaurant/filter/category/'+type).then(function successCallback(response) {
 
@@ -42,7 +50,8 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
             $scope.restaurants[index][4] + " " +
             $scope.restaurants[index][5] + " " +
             $scope.restaurants[index][6] + " " +
-            $scope.restaurants[index][7] + " "
+            $scope.restaurants[index][7] + " ",
+            "url": $scope.restaurants[index][10]
         };
     }
     }
@@ -60,6 +69,55 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
     $scope.restaurants = [];
     $scope.menu_items = [];
     $scope.chosenRestaurant = null;
+  }
+
+  $scope.restaurantsPage = function() {
+    $scope.menu_items = [];
+    $scope.chosenRestaurant = null;
+  }
+
+  $scope.choose_allergies = false;
+  $scope.choose_price = false;
+  $scope.choose_diet = false;
+
+  $scope.chooseAllergies = function() {
+    $scope.choose_allergies = true;
+    $scope.choose_price = false;
+    $scope.choose_diet = false;
+  }
+
+  $scope.filter = function() {
+      $scope.choose_allergies = false;
+    $scope.choose_price = false;
+    $scope.choose_diet = false;
+  }
+
+  $scope.choosePrice = function() {
+    $scope.choose_price = true;
+    $scope.choose_allergies = false;
+    $scope.choose_diet = false;
+
+  }
+
+  $scope.chooseDiet = function() {
+    $scope.choose_diet = true;
+    $scope.choose_price = false;
+    $scope.choose_allergies = false;
+
+  }
+
+  $scope.show_location = false;
+  $scope.show_book = false;
+
+  $scope.showBook = function() {
+  console.log("test");
+      $scope.show_location = false;
+      $scope.show_book = true;
+  }
+
+  $scope.showLocation = function() {
+     $scope.show_location = true;
+     $scope.show_book = false;
   }
 
 });

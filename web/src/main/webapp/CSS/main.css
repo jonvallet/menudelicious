@@ -6,6 +6,31 @@
 	padding: 0px;*/
 }
 
+.allergies-div1 {
+    padding-top: 20px;
+    background-color: #F8F8F8;
+}
+
+.allergies-div2 {
+    padding-bottom: 20px;
+    background-color: #F8F8F8;
+}
+
+.allergy-name {
+    margin-left:10px;
+    font-size:120%;
+}
+
+.form-control {
+    border-radius: 0px !important;
+}
+
+.front_qu {
+    font-size:150%;
+    margin-bottom:20px;
+    text-align: center;
+}
+
 .dropdown
 {
 	width: 40%;
@@ -82,9 +107,13 @@ body
 
 .img-responsive-small
 {
-	width: 40%;
+	width: 80%;
 	float:left;
 	margin: auto;
+}
+
+.breadcrumbs {
+    text-align: right;
 }
 
 .navbar .navbar-default .navbar-static-top
@@ -160,11 +189,16 @@ body
     padding-right: 20px !important;
 }
 
+. red-gly {
+color: #892319 !important;
+}
+
 .redFront {
     color: #fff !important;
     font-size: 120% !important;
     background-color: #892319 !important;
     border-color: #892319 !important;
+    float: right;
 }
 
 
@@ -175,9 +209,8 @@ select.form-control {
 .red2 {
     color: #fff !important;
     font-size: 150% !important;
-    background-color: #962D2D !important;
-    border-color: #962D2D !important;
-    margin-top:100px;
+    background-color: #892319 !important;
+    border-color: #892319 !important;
     width: 200px;
     padding-left: 20px !important;
     padding-right: 20px !important;
@@ -186,8 +219,8 @@ select.form-control {
 .red3 {
     color: #fff !important;
     font-size: 150% !important;
-    background-color: #962D2D !important;
-    border-color: #962D2D !important;
+    background-color: #892319 !important;
+    border-color: #892319 !important;
     width: 200px;
     margin-top:45px;
     padding-left: 20px !important;
@@ -260,6 +293,12 @@ select.form-control {
 
 }
 
+.map {
+    height: 250px !important;
+    width: 100%;
+    background-image: url("/images/map.png");
+}
+
 .alignright
 {
 	text-align: right;
@@ -274,4 +313,10 @@ select.form-control {
 
     padding: 20px;
     text-align: center !important;
+}
+
+.large-book {
+padding-top: 20px;
+    font-size: 24px;
+padding-bottom: 20px;
 }
