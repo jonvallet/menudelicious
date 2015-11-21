@@ -49,7 +49,7 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
                 "allergies" : 'Cereals containing gluten, Crustaceans, Lupin',
                 "rest_name": 'The Library',
                 "rest_address": '4A Guildhall Hill Norwich Norfolk NR2 1JH',
-                "rest_url": 'Library.JPG'
+                "rest_url": 'library.png'
                 };
 
             } else {
@@ -132,6 +132,15 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
     $scope.chosenRestaurant = null;
     $scope.search_term = null;
       $scope.menuSearchResult = null;
+
+
+
+  $scope.choose_allergies = false;
+    $scope.choose_price = false;
+    $scope.choose_diet = false;
+
+     $scope.show_location = false;
+     $scope.show_book = false;
   }
 
   $scope.restaurantsPage = function() {
