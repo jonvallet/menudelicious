@@ -74,6 +74,13 @@ restaurantApp.controller('RestaurantCtrl', function ($scope,$http) {
   $scope.search_term = null;
   $scope.menuSearchResult = null;
 
+  $scope.choose_allergies = false;
+    $scope.choose_price = false;
+    $scope.choose_diet = false;
+
+     $scope.show_location = false;
+     $scope.show_book = false;
+
   for (index = 0; index < $scope.restaurants.length; ++index) {
     if ($scope.restaurants[index][0] == restaurant_id) {
         $scope.chosenRestaurant = {
