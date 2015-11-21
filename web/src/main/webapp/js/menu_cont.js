@@ -8,12 +8,12 @@ restaurantApp.controller('MenuCtrl', function ($scope,$http) {
   $scope.menuItem = [];
   $scope.roles = [];
 
-  $http.get('/api/restaurant/allergies').then(function successCallback(response) {
+  $http.get('api/restaurant/allergies').then(function successCallback(response) {
 
         $scope.allergies = response.data;
   });
 
-  $http.get('/api/restaurant/1/menu').then(function successCallback(response) {
+  $http.get('api/restaurant/1/menu').then(function successCallback(response) {
 
         var menu_items1 = response.data.records;
 
@@ -31,7 +31,7 @@ restaurantApp.controller('MenuCtrl', function ($scope,$http) {
                                 "course": menu_items1[index][9]
                                 };
 
-            $http.get('/api/restaurant/menu/item/'+ menu_items1[index][0] +'/diets').then(function successCallback(response) {
+            $http.get('api/restaurant/menu/item/'+ menu_items1[index][0] +'/diets').then(function successCallback(response) {
 
                item["allergies"] = response.data;
 
