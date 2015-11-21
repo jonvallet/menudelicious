@@ -13,7 +13,7 @@ create table categories (
 create table restaurant (
     id int identity(1,1),
     name varchar(255),
-    description varchar(255),
+    description varchar(500),
     address1 varchar(40),
     address2 varchar(40),
     town varchar(40),

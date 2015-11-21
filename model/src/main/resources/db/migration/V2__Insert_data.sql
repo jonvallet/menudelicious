@@ -2,22 +2,22 @@ INSERT INTO categories (id, name) VALUES (1, 'Fine Dining');
 
 INSERT INTO allergies (id, name) VALUES (1, 'Celery');
 INSERT INTO allergies (id, name) VALUES (2, 'Cereals containing gluten');
-INSERT INTO allergies (id, name) VALUES (3, 'Wheat');
-INSERT INTO allergies (id, name) VALUES (4, 'Crustaceans');
-INSERT INTO allergies (id, name) VALUES (5, 'Eggs');
-INSERT INTO allergies (id, name) VALUES (6, 'Fish');
-INSERT INTO allergies (id, name) VALUES (7, 'Lupin');
-INSERT INTO allergies (id, name) VALUES (8, 'Milk');
-INSERT INTO allergies (id, name) VALUES (9, 'Molluscs');
-INSERT INTO allergies (id, name) VALUES (10, 'Mustard');
-INSERT INTO allergies (id, name) VALUES (11, 'Nuts');
-INSERT INTO allergies (id, name) VALUES (12, 'Peanuts');
-INSERT INTO allergies (id, name) VALUES (13, 'Sesame seeds');
-INSERT INTO allergies (id, name) VALUES (14, 'Soya');
+INSERT INTO allergies (id, name) VALUES (3, 'Crustaceans');
+INSERT INTO allergies (id, name) VALUES (4, 'Eggs');
+INSERT INTO allergies (id, name) VALUES (5, 'Fish');
+INSERT INTO allergies (id, name) VALUES (6, 'Lupin');
+INSERT INTO allergies (id, name) VALUES (7, 'Milk');
+INSERT INTO allergies (id, name) VALUES (8, 'Molluscs');
+INSERT INTO allergies (id, name) VALUES (9, 'Mustard');
+INSERT INTO allergies (id, name) VALUES (10, 'Nuts');
+INSERT INTO allergies (id, name) VALUES (11, 'Peanuts');
+INSERT INTO allergies (id, name) VALUES (12, 'Sesame seeds');
+INSERT INTO allergies (id, name) VALUES (13, 'Soya');
+INSERT INTO allergies (id, name) VALUES (14, 'Sulphur dioxide');
 
 
 INSERT INTO restaurant (id, name, description, address1, address2, town, county, postcode, category_id, phone, photo_url)
-VALUES (1, 'The Ship Inn', '', 'King Street', '', 'Norwich', 'Norfolk', 'NR1 1PH', 1, '01472 822308', 'ship_inn.png');
+VALUES (1, 'The Ship Inn', 'The Ship Inn is situated in the attractive Broadland village of South Walsham in east Norfolk', 'King Street', '', 'Norwich', 'Norfolk', 'NR1 1PH', 1, '01472 822308', 'ship_inn.png');
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
   VALUES (1, 1, 'Beef Strips', 'Deep Fried Crispy Beef Strips in a Hoisin, Plum & Chilli Sauce with salad leaves & Spring onion', false, false, false, 0, 6.95, 'Starter');
