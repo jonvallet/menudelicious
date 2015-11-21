@@ -183,14 +183,14 @@ body
     font-size: 150% !important;
     background-color: #892319 !important;
     border-color: #892319 !important;
-    margin-top:100px;
-    width: 200px;
+    margin-top:20px;
+    width: 50%;
     padding-left: 20px !important;
     padding-right: 20px !important;
 }
 
 . red-gly {
-color: #892319 !important;
+    color: #892319 !important;
 }
 
 .redFront {
@@ -222,7 +222,7 @@ select.form-control {
     background-color: #892319 !important;
     border-color: #892319 !important;
     width: 200px;
-    margin-top:45px;
+    margin-top:35px;
     padding-left: 20px !important;
     padding-right: 20px !important;
 }
@@ -238,6 +238,46 @@ select.form-control {
     margin-bottom: 5px !important;
     float:right !important;
 }
+
+.red-small2 {
+    color: #fff !important;
+    font-size: 100% !important;
+    background-color: #962D2D !important;
+    border-color: #962D2D !important;
+    width: 150px;
+    padding: 1px 2px !important;
+    margin-right: 3px !important;
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;
+}
+
+.categ {
+    color: #888888;
+    font-size: 120%;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+#shade, #modal { display: none; }
+            #shade { position: fixed; z-index: 100; top: 0; left: 0; width: 100%; height: 100%; }
+            #modal { position: fixed; z-index: 101; top: 23%; left: 30%; }
+            #shade { background: silver; opacity: 0.5; filter: alpha(opacity=50); }
+
+            #modal {
+
+    background-image: url("/images/popup.png");
+    background-repeat: no-repeat;
+    height:300px;
+    width:703px;
+            }
+
+    .red5 {
+        color: #FFF !important;
+        font-size: 150% !important;
+        background-color: #892319 !important;
+        border-color: #892319 !important;
+        float: right;
+    }
 
 .price {
     font-size: 150% !important;
@@ -302,6 +342,15 @@ select.form-control {
 .alignright
 {
 	text-align: right;
+}
+
+.rest-small {
+    padding-left: 5px;
+}
+
+.rest-small-name {
+    padding-left: 5px;
+    font-size: 120%;
 }
 
 .aligncenter {

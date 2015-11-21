@@ -17,7 +17,7 @@ INSERT INTO allergies (id, name) VALUES (14, 'Soya');
 
 
 INSERT INTO restaurant (id, name, description, address1, address2, town, county, postcode, category_id, phone, photo_url)
-VALUES (1, 'The Ship Inn', '', 'King Street', '', 'Norwich', 'Norfolk', 'NR1 1PH', 1, '01472 822308', 'Ship_inn.JPG');
+VALUES (1, 'The Ship Inn', 'A lively restaurant in the heart of Norwich city.', 'King Street', '', 'Norwich', 'Norfolk', 'NR1 1PH', 1, '01472 822308', 'Ship_inn.JPG');
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
   VALUES (1, 1, 'Beef Strips', 'Deep Fried Crispy Beef Strips in a Hoisin, Plum & Chilli Sauce with salad leaves & Spring onion', false, false, false, 0, 6.95, 'Starter');

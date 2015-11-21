@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Menulicious - Restaurant Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link href="../CSS/main.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="../Favicon_01-01.png" />
+</head>
+<body>
+<div class="container-fluid">
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div id="navbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="Pages/restaurantloginform.html">Login</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
+	<div class="center">
+
+		<header>
+			<a href="../index.html"><img class="img-responsive" src="../Logo_Final_01-01.jpg" alt="Menulicious"></a>
+		</header>
+	</div>
+
+	<form class="form-signin" name="login" action="" onsubmit="return validateLogin()" method="post">
+		<h2 class="form-signin-heading">Please Login</h2>
+		<label for="inputEmail" class="sr-only">Email address</label>
+		<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+		<label for="inputPassword" class="sr-only">Password</label>
+		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" value="remember-me"> Remember me
+			</label>
+		</div>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	</form>
+
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">Copyright <span class="glyphicon glyphicon-copyright-mark"></span> Menuliciious 2015 - All Rights Reserved</p>
+		</div>
+	</footer>
+	</div>
+</body>
+</html>
