@@ -539,8 +539,50 @@
                 </div>
             </div>
         </div>
-    </div>
 
+        <div class="row grey1">
+            <div class="span9">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img alt="Logo" class="restLogo" src="/images/{{menuSearchResult2.rest_url}}"/>
+                        <div><span class="rest-small-name" ng-bind="menuSearchResult2.rest_name"></span></div>
+                        <div><span class="rest-small" ng-bind="menuSearchResult2.rest_address"></span></div>
+                    </div>
+                    <div class="col-md-6 menu_items">
+                        <h2><span ng-bind="menuSearchResult2.name" /></h2>
+
+                        <div class="padding_top_small"><span ng-bind="menuSearchResult2.description" /></div>
+
+                        <div class="padding_top_small">
+                            <span ng-if="menuSearchResult2.gluten_free == true">GF</span>
+                            <span ng-if="menuSearchResult2.vegan == true">Vegan</span>
+                            <span ng-if="menuSearchResult2.veg == true">Vegetarian</span>
+                    <span ng-if="menuSearchResult2.spice > 0">
+                        <span ng-if="menuSearchResult2.spice == 1">Mild</span>
+                        <span ng-if="menuSearchResult2.spice == 2">Medium spice</span>
+                        <span ng-if="menuSearchResult2.spice == 3">Hot</span>
+                    </span>
+                        </div>
+
+                        <div class="allergies padding_top_small"><span ng-bind="menuSearchResult2.allergies"></span></div>
+
+                        <div class="price padding_top_small">£<span ng-bind="menuSearchResult2.price" /></div>
+
+                        <button class="btn btn-default red-small2" ng-click="alert()"><span class="glyphicon glyphicon-heart-empty"></span> 24 Liked it</button>
+                        <button class="btn btn-default red-small2" ng-click="alert()"><span class="glyphicon glyphicon-heart-empty"></span> 56 Loved it </button>
+                        <button class="btn btn-default red-small2" data-toggle="tooltip" title="This will be shared anonymously with the restaurant only."><span class="glyphicon glyphicon-thumbs-down" ></span> Dislike</button>
+
+                    </div>
+
+                    <div class="col-md-3 right">
+                        <button ng-click="chooseRestaurant(2)" class="btn btn-default red red_padding">Menu</button>
+
+                        <div class="categ">Fine Dining</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

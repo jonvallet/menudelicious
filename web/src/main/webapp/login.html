@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="loginApp">
 <head>
 	<title>Menulicious - Restaurant Login</title>
 	<meta charset="utf-8">
@@ -10,7 +10,7 @@
 	<link href="../CSS/main.css" rel="stylesheet">
 	<link rel="icon" type="image/png" href="../Favicon_01-01.png" />
 </head>
-<body>
+<body ng-controller="LoginCtrl">
 <div class="container-fluid">
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container">
@@ -21,32 +21,39 @@
 			</div><!--/.nav-collapse -->
 		</div>
 	</nav>
-	<div class="center">
 
-		<header>
-			<a href="../index.html"><img class="img-responsive" src="../Logo_Final_01-01.jpg" alt="Menulicious"></a>
-		</header>
+	<div class="aligncenter">
+		<a href="../index.html"><img class="img-responsive-login" src="../Logo_Final_01-01.jpg" alt="Menulicious"></a>
 	</div>
 
-	<form class="form-signin" name="login" action="" onsubmit="return validateLogin()" method="post">
+	<form class="form-signin">
 		<h2 class="form-signin-heading">Please Login</h2>
 		<label for="inputEmail" class="sr-only">Email address</label>
-		<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+		<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" autofocus>
 		<label for="inputPassword" class="sr-only">Password</label>
-		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
 		<div class="checkbox">
 			<label>
 				<input type="checkbox" value="remember-me"> Remember me
 			</label>
 		</div>
-		<button class="btn btn-lg btn-primary btn-block red" type="submit">Sign in</button>
+		<button class="btn btn-lg btn-primary btn-block red" ng-click="enterMenuItem()">Sign in</button>
 	</form>
+</div>
 
-	<footer class="footer">
-		<div class="container">
-			<p class="text-muted">Copyright <span class="glyphicon glyphicon-copyright-mark"></span> Menuliciious 2015 - All Rights Reserved</p>
-		</div>
-	</footer>
-	</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="webjars/angularjs/1.4.7/angular.js"></script>
+<script src="js/login_cont.js"></script>
+
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 </body>
 </html>

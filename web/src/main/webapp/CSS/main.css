@@ -1,9 +1,8 @@
-.container
-{
-	width: 100%;
-	/*text-align: center;
-	width: 100%;
-	padding: 0px;*/
+.container {
+    width: 100%;
+    /*text-align: center;
+    width: 100%;
+    padding: 0px;*/
 }
 
 .allergies-div1 {
@@ -17,8 +16,8 @@
 }
 
 .allergy-name {
-    margin-left:10px;
-    font-size:120%;
+    margin-left: 10px;
+    font-size: 120%;
 }
 
 .form-control {
@@ -26,38 +25,34 @@
 }
 
 .front_qu {
-    font-size:150%;
-    margin-bottom:20px;
+    font-size: 150%;
+    margin-bottom: 20px;
     text-align: center;
 }
 
-.dropdown
-{
-	width: 40%;
-	margin: auto;
-	text-align: center;
+.dropdown {
+    width: 40%;
+    margin: auto;
+    text-align: center;
 }
 
-.dropdown-menu
-{
-	text-align: center;
+.dropdown-menu {
+    text-align: center;
 }
 
-#dropdownMenu1
-{
-	width: 100%;
+#dropdownMenu1 {
+    width: 100%;
 }
 
-body
-{
-  padding-top: 0px !important;
-  padding-bottom: 40px;
-  background-color: #fff;
+body {
+    padding-top: 0px !important;
+    padding-bottom: 40px;
+    background-color: #fff;
 }
 
 .padding_top_small {
 
-  padding-top: 3px !important;
+    padding-top: 3px !important;
 }
 
 .h1, .h2, .h3, h1, h2, h3 {
@@ -65,100 +60,101 @@ body
 }
 
 .form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
 }
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
+
 .form-signin .checkbox {
-  font-weight: normal;
+    font-weight: normal;
 }
+
 .form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
 }
+
 .form-signin .form-control:focus {
-  z-index: 2;
+    z-index: 2;
 }
+
 .form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
+
 .form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
-.img-responsive
-{
-	width: 65%;
-	margin: auto;
+.img-responsive {
+    width: 65%;
+    margin: auto;
 }
 
-.img-responsive-small
-{
-	width: 80%;
-	float:left;
-	margin: auto;
+.img-responsive-small {
+    width: 80%;
+    float: left;
+    margin: auto;
+}
+
+.img-responsive-login {
+    width: 35%;
+    margin: auto;
 }
 
 .breadcrumbs {
     text-align: right;
 }
 
-.navbar .navbar-default .navbar-static-top
-{
-	width: 100%;
+.navbar .navbar-default .navbar-static-top {
+    width: 100%;
 }
 
-.navbar-default
-{
-	background-color: #892319 !important;
-	border-color: #892319 !important;
+.navbar-default {
+    background-color: #892319 !important;
+    border-color: #892319 !important;
 }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
     color: #fff !important;
     background-color: #962D2D !important;
 }
 
-.navbar-right
-{
-	margin-right: 15px;
+.navbar-right {
+    margin-right: 15px;
 }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover
-{
-	background: #962D2D;
-	color: #000;
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover {
+    background: #962D2D;
+    color: #000;
 }
 
-.home
-{
-	margin: auto;
-	text-align: center;
+.home {
+    margin: auto;
+    text-align: center;
 }
 
-
-.restDesc
-{
-	font-size: 12pt;
+.restDesc {
+    font-size: 12pt;
 }
 
-.restAddress
-{
-	font-size: 10pt;
-	padding-top: 5px;
+.restAddress {
+    font-size: 10pt;
+    padding-top: 5px;
 }
 
 .grey1 {
@@ -174,8 +170,8 @@ body
 }
 
 .restLogo {
-    padding:10px;
-    width:250px;
+    padding: 10px;
+    width: 250px;
     text-align: left !important;
 }
 
@@ -184,7 +180,7 @@ body
     font-size: 150% !important;
     background-color: #892319 !important;
     border-color: #892319 !important;
-    margin-top:20px;
+    margin-top: 20px;
     width: 50%;
     padding-left: 20px !important;
     padding-right: 20px !important;
@@ -202,9 +198,8 @@ body
     float: right;
 }
 
-
 select.form-control {
-  line-height: 28px;
+    line-height: 28px;
 }
 
 .red2 {
@@ -223,7 +218,7 @@ select.form-control {
     background-color: #892319 !important;
     border-color: #892319 !important;
     width: 200px;
-    margin-top:35px;
+    margin-top: 35px;
     padding-left: 20px !important;
     padding-right: 20px !important;
 }
@@ -237,7 +232,7 @@ select.form-control {
     padding: 1px 2px !important;
     margin-right: 3px !important;
     margin-bottom: 5px !important;
-    float:right !important;
+    float: right !important;
 }
 
 .red-small2 {
@@ -259,26 +254,47 @@ select.form-control {
     padding-top: 20px;
 }
 
-#shade, #modal { display: none; }
-            #shade { position: fixed; z-index: 100; top: 0; left: 0; width: 100%; height: 100%; }
-            #modal { position: fixed; z-index: 101; top: 23%; left: 30%; }
-            #shade { background: silver; opacity: 0.5; filter: alpha(opacity=50); }
+#shade, #modal {
+    display: none;
+}
 
-            #modal {
+#shade {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#modal {
+    position: fixed;
+    z-index: 101;
+    top: 23%;
+    left: 30%;
+}
+
+#shade {
+    background: silver;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+#modal {
 
     background-image: url("/images/popup.png");
     background-repeat: no-repeat;
-    height:300px;
-    width:703px;
-            }
+    height: 300px;
+    width: 703px;
+}
 
-    .red5 {
-        color: #FFF !important;
-        font-size: 150% !important;
-        background-color: #892319 !important;
-        border-color: #892319 !important;
-        float: right;
-    }
+.red5 {
+    color: #FFF !important;
+    font-size: 150% !important;
+    background-color: #892319 !important;
+    border-color: #892319 !important;
+    float: right;
+}
 
 .price {
     font-size: 150% !important;
@@ -308,13 +324,12 @@ select.form-control {
 
 .menu_title {
     font-size: 250%;
-    font-weight:500;
-    text-align:center;
+    font-weight: 500;
+    text-align: center;
 }
 
-.container-fluid
-{
-	padding: 0px !important;
+.container-fluid {
+    padding: 0px !important;
 }
 
 .allergies {
@@ -340,9 +355,8 @@ select.form-control {
     background-image: url("/images/map.png");
 }
 
-.alignright
-{
-	text-align: right;
+.alignright {
+    text-align: right;
 }
 
 .rest-small {
@@ -371,5 +385,5 @@ select.form-control {
     padding-left: 30px;
     padding-right: 30px;
     font-size: 24px;
-    float:left;
+    float: left;
 }
