@@ -13,6 +13,12 @@ restaurantApp.controller('MenuCtrl', function ($scope,$http) {
         $scope.allergies = response.data;
   });
 
+  $scope.addmenuitem = function() {
+
+  console.log("click");
+    $location.path('/menu.html')
+  }
+
   $http.get('api/restaurant/1/menu').then(function successCallback(response) {
 
         var menu_items1 = response.data.records;
