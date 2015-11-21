@@ -75,54 +75,54 @@ INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (10, 7);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (10, 14);
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-  VALUES (11, 1, 'VEGETABLE THAI GREEN CURRY WITH CORIANDER RICE & POPPADUM’S', '', true, true, false, 0, 9.95, 'Main');
+  VALUES (11, 1, 'Vegetable Thai Green Curry With Coriander Rice & Poppadums’s', '', true, true, false, 0, 9.95, 'Main');
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (11, 1);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (11, 7);
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-  VALUES (12, 1, 'MUSHROOM & PARMESAN RISOTTO WITH BASIL OIL & ROCKET', '', true, true, false, 0, 9.95, 'Main');
+  VALUES (12, 1, 'Mushrooms & Parmesan Risotto With Basil Oil & Rocket', '', true, true, false, 0, 9.95, 'Main');
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (12, 7);
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-  VALUES (13, 1, 'APPLE & BERRY CRUMBLE & CUSTARD', '', false, true, false, 0, 5.95, 'Dessert');
+  VALUES (13, 1, 'Apple & Berry Crumble & Custard', '', false, true, false, 0, 5.95, 'Dessert');
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (13, 2);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (13, 7);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (13, 4);
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-  VALUES (14, 1, 'CHEESECAKE WITH FRESH FRUIT & FRUIT COULIS', '', false, true, false, 0, 5.95, 'Dessert');
+  VALUES (14, 1, 'Cheesecake With Fresh Fruit & Fruit Coulis', '', false, true, false, 0, 5.95, 'Dessert');
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (14, 2);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (14, 7);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (14, 4);
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-  VALUES (15, 1, 'CHOCOLATE TART, WHITE CHOCOLATE MOUSSE & CHOCOLATE BROWNIE WITH BLACKCURRANT SORBET', '', false, true, false, 0, 5.95, 'Dessert');
+  VALUES (15, 1, 'Chocolate Tart, White Chocolate Mousse & Chocolate Brownie With Blackcurrant Sorbet', '', false, true, false, 0, 5.95, 'Dessert');
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (15, 2);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (15, 7);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (15, 4);
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-  VALUES (16, 1, 'STICKY TOFFEE PUDDING WITH VANILLA ICE-CREAM', '', false, true, false, 0, 5.95, 'Dessert');
+  VALUES (16, 1, 'Sticky Toffee Pudding With Vanilla Ice-Cream', '', false, true, false, 0, 5.95, 'Dessert');
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (16, 4);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (16, 7);
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-  VALUES (40, 1, 'VANILLA CRÈME BRULEE WITH CARAMEL SHARD & FLAMED MERINGUE', '', false, true, false, 0, 5.95, 'Dessert');
+  VALUES (40, 1, 'Vanilla Creme Brulee Wtih Caramel Shard & Flamed Meringue', '', false, true, false, 0, 5.95, 'Dessert');
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (40, 4);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (40, 7);
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-  VALUES (17, 1, 'CLASSIC TIRAMISU', '', false, true, false, 0, 5.95, 'Dessert');
+  VALUES (17, 1, 'Classic Tiramisu', '', false, true, false, 0, 5.95, 'Dessert');
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (17, 12);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (17, 13);
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-  VALUES (18, 1, 'SHIPS CHEESE PLATTER', 'A Selection of Cheeses served with Crackers & Chutney', false, true, false, 0, 6.5, 'Dessert');
+  VALUES (18, 1, 'Ships Cheese Platter', 'A Selection of Cheeses served with Crackers & Chutney', false, true, false, 0, 6.5, 'Dessert');
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (18, 7);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (18, 2);
 
 INSERT INTO menu_items (id, restaurant_id, name, description, gluten_free, vegan, veg, spice, price, course)
-  VALUES (19, 1, 'SELECTION OF ICE-CREAM', 'Vanilla, Chocolate or Strawberry', false, true, false, 0, 4.95, 'Main');
+  VALUES (19, 1, 'Selection Of Ice-Cream', 'Vanilla, Chocolate or Strawberry', false, true, false, 0, 4.95, 'Main');
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (19, 4);
 INSERT INTO menu_diet (menu_item_id, diet_id) VALUES (19, 7);
 
